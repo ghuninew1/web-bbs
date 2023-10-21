@@ -1,0 +1,70 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.banner-bg {
+    height: 573px;
+    background: url("/img/logo.gif") no-repeat;
+    background-size: auto 573px;
+    background-position: center;
+    background-color: #000;
+    max-width: 100%;
+    width: 700px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.banner-bg--active {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeOut 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: 573px;
+        width: 700px;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        width: 0px;
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        width: 0px;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        height: 573px;
+        width: 700px;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .banner-bg {
+        padding: 0 2rem;
+        background-size: auto 300px;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+    }
+}

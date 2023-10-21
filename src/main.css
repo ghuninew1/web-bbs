@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap");
+@font-face {
+    font-family: "font1";
+    src: url("/img/a6d731_b3b23dabd7104520ade9b4012f4bc97a.woff") format("woff");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Signika", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: #000;
+    color: #d8d5d5;
+    transition: all 0.3s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #22222189;
+    transform-origin: 0%;
+    z-index: -5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+}

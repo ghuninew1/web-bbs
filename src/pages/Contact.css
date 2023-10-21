@@ -1,0 +1,34 @@
+.Contacts {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+    padding: 0;
+    max-width: 1200px;
+}
+
+.Contacts-1 {
+    margin: 0px;
+    padding: 0px;
+}
+.Contacts-2 > iframe {
+    margin: 0 auto;
+    width: 100%;
+}
+.Contacts-2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.Contacts-3 {
+    padding: 10px;
+}
+.Contacts-4 {
+}
+.Contacts-5 {
+}
+.Contacts-6 {
+}
+.Contacts-6 h2 {
+}
+.Contacts-6 p {
+}

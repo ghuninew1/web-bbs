@@ -1,0 +1,46 @@
+.Studio {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: end;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+
+.Studio-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    height: auto;
+}
+.Studio-1 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #128b40;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.Studio-1 p {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    color: #e3e3e3;
+    margin: 0;
+    padding: 0;
+}
+.Studio-1 p span {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.Studio-1 img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
