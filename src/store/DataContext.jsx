@@ -1,16 +1,10 @@
 import { createContext, useState, useContext, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 
-export const UserContext = createContext(null);
 export const ThemeContext = createContext("light");
 
-export const UseUser = () => {
-    const context = useContext(UserContext);
-    if (!context) {
-        throw new Error("Something went wrong!");
-    }
-    return context;
-};
+export const ImageSlideContext = createContext(null);
+
 export const UseTheme = () => {
     const context = useContext(ThemeContext);
     if (!context) {
@@ -20,8 +14,8 @@ export const UseTheme = () => {
 };
 
 export const DataProvider = ({ children }) => {
-    const [user, setUser] = useState(localStorage.getItem("user") || null);
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    const [slide, setSlide] = useState(null);
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
@@ -32,27 +26,21 @@ export const DataProvider = ({ children }) => {
         setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
     }, []);
 
+    const changeSlide = useCallback((data) => {
+        setSlide(() => (data ? data : null));
+    }, []);
+
     const themeValue = {
         theme,
         toggleTheme,
     };
 
-    const userCheck = useCallback(
-        (data) => {
-            setUser(data);
-        },
-        [setUser]
-    );
-
-    const userValue = {
-        user,
-        userCheck,
-    };
-
     return (
-        <UserContext.Provider value={userValue}>
-            <ThemeContext.Provider value={themeValue}>{children}</ThemeContext.Provider>
-        </UserContext.Provider>
+        <ThemeContext.Provider value={themeValue}>
+            <ImageSlideContext.Provider value={[slide, changeSlide]}>
+                {children}
+            </ImageSlideContext.Provider>
+        </ThemeContext.Provider>
     );
 };
 

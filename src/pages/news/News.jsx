@@ -1,120 +1,100 @@
-import { useEffect, useState } from "react";
+import { useRef, useContext, useEffect } from "react";
 import "./News.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { dataNews } from "./dataNews";
-import Modal from "./Modal";
+import { ImageSlideContext } from "../../store/DataContext";
+import Layout from "../layout/Layout";
+import SliceShow from "./SliceShow";
+// const result = import.meta.globEager("../../../public/img/news2/*");
 
 const News = () => {
-    const [clickedImg, setClickedImg] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(null);
-    const [data, setData] = useState(dataNews);
+    const dataRef = useRef(dataNews);
+    const [slide, changeSlide] = useContext(ImageSlideContext);
 
     useEffect(() => {
-        if (dataNews) {
-            setData(dataNews);
-        }
-        const handleEsc = (e) => {
-            if (e.key === "Escape") {
-                setClickedImg(null);
-            }
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => {
-            window.removeEventListener("keydown", handleEsc);
-        };
+        dataRef.current = dataNews;
     }, []);
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
-
-    const handleClick = (item, index) => {
-        setCurrentIndex(index);
-        setClickedImg(item.src);
-    };
-
-    const handelRotationRight = () => {
-        const totalLength = data.length;
-        if (currentIndex + 1 >= totalLength) {
-            setCurrentIndex(0);
-            const newUrl = data[0].src;
-            setClickedImg(newUrl);
-            return;
+    const handleClick = (e, item) => {
+        e.preventDefault();
+        if (item?.to.toString().startsWith("http")) {
+            window.open(item.to, "_blank");
+        } else {
+            changeSlide(item?.to.toString().startsWith("http") ? null : item);
         }
-        const newIndex = currentIndex + 1;
-        const newUrl = data.filter((item) => {
-            return data.indexOf(item) === newIndex;
-        });
-        const newItem = newUrl[0].src;
-        setClickedImg(newItem);
-        setCurrentIndex(newIndex);
-    };
-
-    const handelRotationLeft = () => {
-        const totalLength = data.length;
-        if (currentIndex === 0) {
-            setCurrentIndex(totalLength - 1);
-            const newUrl = data[totalLength - 1].src;
-            setClickedImg(newUrl);
-            return;
-        }
-        const newIndex = currentIndex - 1;
-        const newUrl = data.filter((item) => {
-            return data.indexOf(item) === newIndex;
-        });
-        const newItem = newUrl[0].src;
-        setClickedImg(newItem);
-        setCurrentIndex(newIndex);
     };
 
     return (
-        <div className="news">
-            <button onClick={scrollToTop} className="totop">
-                to top
-            </button>
-            <div className={clickedImg ? "news-1 wrapper" : "news-1"}>
-                {clickedImg && (
-                    <Modal
-                        clickedImg={clickedImg}
-                        setClickedImg={setClickedImg}
-                        handelRotationLeft={handelRotationLeft}
-                        handelRotationRight={handelRotationRight}
-                        currentIndex={currentIndex}
-                        setCurrentIndex={setCurrentIndex}
-                        data={data}
-                    />
-                )}
-                {data &&
-                    data.map((item, index) => (
-                        <div key={item.id} className={item.swap ? "news__item_warp" : "news__item"}>
+        <Layout totop={false}>
+            <div className="news_title">
+                {dataRef.current && slide?.to.length > 0 ? (
+                    <SliceShow auto={5000} />
+                ) : (
+                    dataRef.current?.map((item) => (
+                        <div
+                            key={item.id}
+                            data-section
+                            id={`slide-${item.id}`}
+                            className="news_title_main"
+                            style={{
+                                flexDirection: item.swap ? "row-reverse" : "row",
+                            }}
+                        >
                             <div
-                                className="news__item__img wrapper-images"
-                                onClick={() => handleClick(item, index)}
+                                className={"news_title_main_img "}
+                                style={{
+                                    alignItems: item.swap ? "flex-end" : "flex-start",
+                                }}
+                                onClick={(e) => handleClick(e, item)}
                             >
-                                <img src={item.src} alt={item.id} />
+                                <img src={item.src} alt={item.id} className={"anim-right-in "} />
                             </div>
-                            <div className="news__item__date">
-                                <p>{item.date}</p>
-                                <hr />
-                            </div>
-                            <div
+                            <article
                                 className={
-                                    item.swap ? "news__item__content_warp" : "news__item__content"
+                                    slide?.to.length > 0
+                                        ? "anim-zoom-out"
+                                        : "news_title_main_date anim-zoom-in"
                                 }
                             >
-                                <div>
-                                    <p>{item.title}</p>
-                                </div>
-
-                                <Link to={`${item.to}`}>see more</Link>
-                            </div>
+                                <p>{item.date}</p>
+                                <hr />
+                            </article>
+                            <article
+                                className={
+                                    item.swap || slide?.to.length > 0
+                                        ? "news_title_main_text anim-left-in"
+                                        : "news_title_main_text anim-right-in"
+                                }
+                                style={{
+                                    textAlign: item.swap ? "left" : "right",
+                                }}
+                            >
+                                <p
+                                    className={
+                                        slide?.to.length > 0 && item.swap
+                                            ? "anim-right-in"
+                                            : "anim-left-in"
+                                    }
+                                >
+                                    {item.title}
+                                </p>
+                                <button
+                                    style={{ textAlign: item.swap ? "start" : "end" }}
+                                    className={
+                                        slide?.to.length > 0 && item.swap
+                                            ? "anim-right-in"
+                                            : "anim-left-in"
+                                    }
+                                    onClick={(e) => handleClick(e, item.to)}
+                                >
+                                    read more
+                                </button>
+                            </article>
                         </div>
-                    ))}
+                    ))
+                )}
             </div>
-        </div>
+        </Layout>
     );
 };
 
