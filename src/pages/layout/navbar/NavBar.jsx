@@ -16,7 +16,7 @@ const NavBar = () => {
     return (
         <nav className="navbar">
             <Link to="/" className="nav-logo-li mount">
-                <img src="/img/apple-icon-180x180.png" alt="logo" />
+                <img src="/img/apple-icon-180x180.webp" alt="logo" />
             </Link>
 
             <ul className="nav-links">

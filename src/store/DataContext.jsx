@@ -1,47 +1,51 @@
-import { createContext, useState, useContext, useEffect, useCallback } from "react";
+import { createContext, useState, useMemo, useContext, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 
-export const ThemeContext = createContext("light");
+export const ScrollContext = createContext({
+    x: 0,
+    y: 0,
+    lastX: 0,
+    lastY: 0,
+});
 
-export const ImageSlideContext = createContext(null);
-
-export const UseTheme = () => {
-    const context = useContext(ThemeContext);
-    if (!context) {
-        throw new Error("Something went wrong!");
-    }
-    return context;
-};
+export const UseScroll = () => useContext(ScrollContext);
 
 export const DataProvider = ({ children }) => {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-    const [slide, setSlide] = useState(null);
+    const [scroll, setScroll] = useState({
+        x: 0,
+        y: 0,
+        lastX: 0,
+        lastY: 0,
+    });
+
+    const handleScroll = useCallback(() => {
+        setScroll((prev) => ({
+            x: window.scrollX,
+            y: window.scrollY,
+            lastX: prev.x,
+            lastY: prev.y,
+        }));
+    }, []);
+
+    const dataScroll = useMemo(() => {
+        return {
+            x: scroll.x,
+            y: scroll.y,
+            lastX: scroll.lastX,
+            lastY: scroll.lastY,
+        };
+    }, [scroll]);
 
     useEffect(() => {
-        localStorage.setItem("theme", theme);
-        document.documentElement.setAttribute("data-bs-theme", theme);
-    }, [theme]);
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
 
-    const toggleTheme = useCallback(() => {
-        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    }, []);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [handleScroll]);
 
-    const changeSlide = useCallback((data) => {
-        setSlide(() => (data ? data : null));
-    }, []);
-
-    const themeValue = {
-        theme,
-        toggleTheme,
-    };
-
-    return (
-        <ThemeContext.Provider value={themeValue}>
-            <ImageSlideContext.Provider value={[slide, changeSlide]}>
-                {children}
-            </ImageSlideContext.Provider>
-        </ThemeContext.Provider>
-    );
+    return <ScrollContext.Provider value={dataScroll}>{children}</ScrollContext.Provider>;
 };
 
 DataProvider.propTypes = {

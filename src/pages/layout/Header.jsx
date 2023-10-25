@@ -5,6 +5,7 @@ const Header = () => {
     return (
         <>
             <Banner />
+
             <div className={"Header"}>
                 <p>
                     BIG BRAIN &nbsp;<span>STUDIO</span>

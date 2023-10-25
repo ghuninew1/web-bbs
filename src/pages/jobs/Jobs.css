@@ -1,0 +1,196 @@
+.jobs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.jobs-img {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.jobs-img-active {
+    display: none;
+}
+
+.jobs-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 99;
+}
+.jobs-list-active {
+    position: fixed;
+    top: 15%;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 999;
+}
+.jobs-item {
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jobs-link-icon {
+    display: inline;
+    color: #00ff15;
+    margin: 0 10px;
+    width: 30px;
+    animation: icon 1s infinite;
+}
+.jobs-item .active {
+    color: rgb(255, 0, 0);
+}
+
+.jobs-item:hover .jobs-link:hover {
+    color: rgb(255, 0, 0);
+}
+.jobs-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+.jobs-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.jobs-header {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.jobs-header img {
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+}
+button.jobs-link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: font2;
+    font-size: 25px;
+    line-height: 1.4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+button.jobs-link:hover {
+    color: rgb(255, 0, 0);
+    filter: drop-shadow(0px 0px 10px rgb(255, 0, 0));
+    transform: translateX(-15px);
+    transition: 0.3s;
+}
+button.jobs-link.active {
+    color: rgb(255, 0, 0);
+    filter: drop-shadow(0px 0px 10px rgb(255, 0, 0));
+    transform: translateX(-15px);
+    transition: 0.3s;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
+.description h2 {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    text-align: start;
+}
+.description p {
+    margin: 0 10px;
+    padding: 0;
+    margin-bottom: 5px;
+    font-size: 17px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: start;
+    max-width: 1400px;
+}
+.description p::first-letter {
+    padding-left: 35px;
+}
+.requirements {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+}
+.requirements h2 {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    text-align: start;
+}
+.requirements ul {
+    list-style: none;
+    text-align: start;
+    margin: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.requirements ul li {
+    margin: 0 10px;
+    padding: 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+.requirements li::before {
+    content: "•";
+    color: rgb(255, 0, 0);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.requirements li::marker {
+    color: rgb(255, 0, 0);
+}
+
+@keyframes icon {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@media screen and (max-width: 700px) {
+    .jobs-header {
+        font-size: 18px;
+        margin: 20px 0;
+        text-align: start;
+        transition: all 0.3s ease-in-out;
+    }
+}

@@ -1,13 +1,13 @@
 .layout {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
     margin-top: 50px;
-    transition: all 0.5s ease-in-out;
 }
 
 .totop {
@@ -25,28 +25,22 @@
     border-radius: 5px;
     font-family: "Signika", sans-serif;
     font-weight: 600;
-    transition: all 0.5s ease-in-out;
 }
 
 .totop:focus {
     color: #fff;
     outline: 1px solid #f7990b;
     filter: drop-shadow(0px 0px 2px #f7990b);
-    transition: all 0.3s ease-in-out;
 }
 
 .totop:hover {
     background-color: #1a7b20c1;
     color: #000000;
-    transform: scale(1.1);
-    transition: all 0.4s ease-in-out;
 }
 
 .totop:active {
     background-color: #f79a0b;
     color: #000000;
-    transform: translateY(-50%);
-    transition: all 0.4s ease-in-out;
 }
 
 .tc {

@@ -1,0 +1,202 @@
+.partner {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    width: 100%;
+}
+.partner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    margin: 0;
+    width: 100%;
+}
+.partner-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.partner-logo img {
+    width: 100%;
+    margin: 5px;
+    padding: 0;
+    max-height: 150px;
+}
+.partner-logo-4 img {
+    width: 80px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-3 img {
+    width: 150px !important;
+    height: 100% !important;
+}
+
+.partner-logo-1 img {
+    width: 100px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-2 img {
+    width: 120px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-5 img {
+    width: 120px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-6 img {
+    width: 100px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-7 img {
+    width: 70px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-8 img {
+    width: 110px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-9 img {
+    width: 90px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-10 img {
+    width: 80px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-11 img {
+    width: 80px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-12 img {
+    width: 100px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-13 img {
+    width: 70px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-14 img {
+    width: 110px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-15 img {
+    width: 120px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-16 img {
+    width: 120px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-17 img {
+    width: 150px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-18 img {
+    width: 90px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-19 img {
+    width: 70px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-20 img {
+    width: 60px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-21 img {
+    width: 120px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-22 img {
+    width: 90px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-23 img {
+    width: 100px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-24 img {
+    width: 80px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-logo-25 img {
+    width: 70px !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
