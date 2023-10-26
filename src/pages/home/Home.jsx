@@ -18,14 +18,16 @@ const Home = () => {
     return (
         <Layout>
             <div className="home">
-                <h1>Showreel</h1>
+                <Fade delay={100} direction="up" damping={0.1}>
+                    <h1>Showreel</h1>
 
-                <div className="home-video">
-                    <YouTube videoId="BuuDEn1r8GY" opts={opts} />
-                </div>
-                {/* <Fade delay={1000} direction="up" damping={0.1}> */}
-                <Partner />
-                {/* </Fade> */}
+                    <div className="home-video">
+                        <YouTube videoId="BuuDEn1r8GY" opts={opts} />
+                    </div>
+                </Fade>
+                <Fade delay={500} direction="up" damping={0.1}>
+                    <Partner />
+                </Fade>
             </div>
         </Layout>
     );

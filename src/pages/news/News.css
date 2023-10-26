@@ -30,6 +30,9 @@
     overflow: hidden;
     filter: drop-shadow(0 0 4px #063d0879);
 }
+.news_title_main_img > div {
+    scroll-snap-align: start none;
+}
 .news_title_main_img:hover img {
     cursor: pointer;
     transform: scale(1.1);
@@ -39,6 +42,7 @@
 .news_title_main_img {
     flex-wrap: nowrap;
     border-radius: 10px;
+    scroll-snap-align: start none;
 }
 .news_title_main_img img {
     width: 100%;

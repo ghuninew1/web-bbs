@@ -15,8 +15,8 @@ const NavBar = () => {
     };
 
     return (
-        <nav className="navbar" id="navbarMain">
-            <Link to="/" className="nav-logo-li mount">
+        <nav className="navbar">
+            <Link to="/" className="nav-logo-li mount-on">
                 <img src="/img/apple-icon-180x180.webp" alt="logo" />
             </Link>
 
@@ -24,36 +24,36 @@ const NavBar = () => {
                 <label className={"hamburger"} onClick={handleToggle}>
                     {!boolean === true ? <FiMenu /> : <FiX />}
                 </label>
-                <Fade direction="down" delay={500} damping={0.1}>
-                    <div>
-                        <li>
-                            {LinksMain &&
-                                LinksMain.map((link) => (
-                                    <NavLink
-                                        key={link.name}
-                                        to={link.to}
-                                        end={link.to === "/" ? true : false}
-                                    >
-                                        {link.name && link.name}
-                                    </NavLink>
-                                ))}
-                        </li>
-                    </div>
-                    <li className="nav-mobie">
+                {/* <Fade direction="down" delay={500} damping={0.1}> */}
+                <div>
+                    <li>
                         {LinksMain &&
-                            boolean &&
                             LinksMain.map((link) => (
                                 <NavLink
                                     key={link.name}
                                     to={link.to}
                                     end={link.to === "/" ? true : false}
-                                    onClick={handleToggle}
                                 >
                                     {link.name && link.name}
                                 </NavLink>
                             ))}
                     </li>
-                </Fade>
+                </div>
+                <li className="nav-mobie">
+                    {LinksMain &&
+                        boolean &&
+                        LinksMain.map((link) => (
+                            <NavLink
+                                key={link.name}
+                                to={link.to}
+                                end={link.to === "/" ? true : false}
+                                onClick={handleToggle}
+                            >
+                                {link.name && link.name}
+                            </NavLink>
+                        ))}
+                </li>
+                {/* </Fade> */}
             </ul>
         </nav>
     );

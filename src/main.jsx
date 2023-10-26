@@ -4,8 +4,4 @@ import App from "./App.jsx";
 import "./main.css";
 // import { DataProvider } from "./store/DataContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <App />
-    </StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

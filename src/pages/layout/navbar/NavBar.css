@@ -15,7 +15,6 @@
     align-items: center;
     transform: translateY(0%);
     opacity: 0;
-    transition: all 0.4s ease-in-out;
 }
 
 .navbar ul {
@@ -35,14 +34,21 @@
     margin: 0 5px;
     border-radius: 6px;
     z-index: 9999;
-    animation: zoomIn 1s forwards;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-.navbar ul li a:hover {
+.navbar ul:hover li:hover a:hover {
     color: #c51902;
     outline: 3px solid #ff5c04;
-    transition: all 0.4s ease-in-out;
+}
+
+.nav-link li a {
+    animation: slide-inNav 0.5s ease-in-out !important;
+    animation-fill-mode: forwards;
+}
+.nav-link li a:hover {
+    animation: slide-inNav 0.5s ease-in-out !important;
+    animation-fill-mode: forwards;
 }
 .navbar ul li a.active {
     outline: 2px solid #2ed71ba7;
@@ -53,7 +59,6 @@
 a.nav-logo-li img {
     margin: 0 12px;
     width: 60px;
-    transition: all 0.4s ease-in-out;
 }
 
 .hamburger {
@@ -61,15 +66,11 @@ a.nav-logo-li img {
     cursor: pointer;
     font-size: 2rem;
     margin: 0 8px;
-    animation: zoomIn 0.3s forwards;
-    transition: all 0.4s ease-in-out;
 }
 .hamburger:hover {
     color: #d77f2d;
     font-size: 2.5rem;
     filter: drop-shadow(0px 0px 5px #d77f2d);
-    animation: mount 0.5s forwards;
-    transition: all 0.4s ease-in-out;
 }
 
 .hamburger:focus,
@@ -79,8 +80,15 @@ a.nav-logo-li img {
 .navbar .nav-mobie {
     display: none;
     background-color: transparent;
-    animation: zoomIn 0.6s forwards;
-    transition: all 0.4s ease-in-out;
+}
+
+a.mount-on {
+    animation: unmount-zoom 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+a.mount-on:hover {
+    animation: mount-zoom 0.6s ease-in;
+    animation-fill-mode: forwards;
 }
 @media screen and (max-width: 700px) {
     .hamburger {
@@ -108,7 +116,6 @@ a.nav-logo-li img {
         border-radius: 15px;
         z-index: 9999;
         background-color: #0a0a0af8;
-        animation: slideIn 0.6s forwards;
     }
 
     .navbar ul li a {
@@ -118,55 +125,53 @@ a.nav-logo-li img {
         padding: 10px 0;
         width: 100%;
         z-index: 9999;
-        animation: slideOut 0.6s forwards;
     }
     a.nav-logo-li img {
         margin: 0 10px;
         width: 50px;
     }
 }
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes slideOut {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-@keyframes zoomIn {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
 
-@keyframes mount {
+@keyframes mount-zoom {
     0% {
         transform: scale(1);
-        opacity: 1;
     }
     30% {
         transform: scale(1.2);
-        opacity: 0.5;
+    }
+    60% {
+        transform: scale(0.8);
     }
     100% {
-        transform: scale(0.9);
-        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes unmount-zoom {
+    0% {
+        transform: translateY(0%);
+    }
+    30% {
+        transform: translateY(10%) scale(0.8);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slide-inNav {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-outNav {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
