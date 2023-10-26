@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import Partner from "./Partner";
 import YouTube from "react-youtube";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 import "./Home.css";
 
 const Home = () => {
@@ -9,7 +10,6 @@ const Home = () => {
         height: "540",
         width: "960",
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
             enablejsapi: 1,
             playsinline: 1,
@@ -18,15 +18,14 @@ const Home = () => {
     return (
         <Layout>
             <div className="home">
-                <Fade left cascade>
-                    <h1>Showreel</h1>
-                </Fade>
+                <h1>Showreel</h1>
 
-                <div className="home__video">
-                    <YouTube videoId="BuuDEn1r8GY" opts={opts} style={{ width: "100%" }} />
+                <div className="home-video">
+                    <YouTube videoId="BuuDEn1r8GY" opts={opts} />
                 </div>
-
+                {/* <Fade delay={1000} direction="up" damping={0.1}> */}
                 <Partner />
+                {/* </Fade> */}
             </div>
         </Layout>
     );

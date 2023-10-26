@@ -1,3 +1,17 @@
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 .jobs-container {
     display: flex;
     flex-direction: column;
@@ -6,7 +20,7 @@
     position: relative;
 }
 .jobs-img {
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -25,7 +39,7 @@
 }
 .jobs-list-active {
     position: fixed;
-    top: 15%;
+    top: 14%;
     right: 15px;
     display: flex;
     flex-direction: column;
@@ -33,6 +47,7 @@
     justify-content: center;
     transition: 0.3s;
     z-index: 999;
+    animation: slide 1s ease-in-out;
 }
 .jobs-item {
     list-style: none;
@@ -41,6 +56,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slide 0.6s ease-in-out;
 }
 .jobs-link-icon {
     display: inline;
@@ -66,19 +82,22 @@
 .jobs-main {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20px;
 }
 .jobs-header {
-    font-size: 20px;
+    font-size: 16px;
     color: rgb(255, 255, 255);
     margin-bottom: 25px;
-    text-align: center;
+    text-align: start;
+    margin-left: 20px;
+    animation: slide 1s ease-in-out;
 }
 .jobs-header img {
     width: 100px;
     height: 100%;
     object-fit: cover;
+    animation: slide 1s ease-in-out;
 }
 button.jobs-link {
     text-decoration: none;
@@ -188,9 +207,63 @@ button.jobs-link.active {
 }
 @media screen and (max-width: 700px) {
     .jobs-header {
-        font-size: 18px;
+        font-size: 13px;
         margin: 20px 0;
         text-align: start;
+        transition: all 0.3s ease-in-out;
+    }
+    .description h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        text-align: start;
+    }
+    .requirements h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        text-align: start;
+    }
+    .description p {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+        text-align: start;
+        max-width: 1400px;
+    }
+    .requirements ul li {
+        margin: 0 10px;
+        padding: 0;
+        margin-bottom: 5px;
+        font-size: 13px;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        font-weight: 300;
+    }
+    .jobs-container img {
+        width: 250px;
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+    .jobs-list-active {
+        position: fixed;
+        top: 12%;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        transition: 0.3s;
+        z-index: 999;
+    }
+    button.jobs-link {
+        font-size: 20px;
+        line-height: 1.4;
+        transition: all 0.3s ease-in-out;
+    }
+    .jobs-header img {
+        width: 90px;
+        height: 100%;
+        object-fit: cover;
+
         transition: all 0.3s ease-in-out;
     }
 }

@@ -1,17 +1,17 @@
-import { useRef, useContext, useEffect, useState } from "react";
+import { useRef, useContext, useEffect } from "react";
 import "./News.css";
 // import { Link } from "react-router-dom";
 import { dataNews } from "./dataNews";
 import { ImageSlideContext } from "../../store/ImageSlideContext.jsx";
 import Layout from "../layout/Layout";
+import { Fade } from "react-awesome-reveal";
 import SliceShow from "./SliceShow";
-import Fade from "react-reveal/Fade";
+
 // const result = import.meta.globEager("../../../public/img/news2/*");
 
 const News = () => {
     const dataRef = useRef(dataNews);
     const [slide, changeSlide] = useContext(ImageSlideContext);
-    const [state, setState] = useState(false);
 
     useEffect(() => {
         dataRef.current = dataNews;
@@ -23,24 +23,20 @@ const News = () => {
             window.open(item.to, "_blank");
         } else {
             changeSlide(item?.to.toString().startsWith("http") ? null : item);
-            setState(true);
         }
     };
 
     return (
-        <Layout title="News" totop={false}>
+        <Layout title="News" totop={slide?.to.length > 0 ? false : true}>
             <div className="news_title">
                 {dataRef.current && slide?.to.length > 0 ? (
                     <SliceShow auto={5000} />
                 ) : (
-                    <Fade left cascade>
+                    <Fade direction="up" damping={0.1} cascade>
                         {dataRef.current?.map((item) => (
                             <div
                                 key={item.id}
-                                className="news_title_main"
-                                style={{
-                                    flexDirection: item.swap ? "row-reverse" : "row",
-                                }}
+                                className={item.swap ? "news_title_main swap" : "news_title_main"}
                             >
                                 <div
                                     className={"news_title_main_img "}

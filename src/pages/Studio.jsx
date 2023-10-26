@@ -1,37 +1,33 @@
 import { useState, useEffect } from "react";
 import Layout from "./layout/Layout";
 import { Img } from "../component/utils";
-import Zoom from "react-reveal/Zoom";
+import { Zoom, Fade } from "react-awesome-reveal";
+
 import "./Studio.css";
 
 const Studio = () => {
-    const [state, setState] = useState(false);
     const [titles, setTitles] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setState(true);
-        }, 500);
         const timer2 = setTimeout(() => {
             setTitles(true);
-            setState(false);
-        }, 2500);
-        return () => clearTimeout(timer, timer2);
+        }, 2000);
+        return () => clearTimeout(timer2);
     }, []);
 
     return (
         <Layout title="Studio">
-            <div className={!titles ? "Studio" : "Studio-active"}>
+            <div className={"Studio-active"}>
                 {!titles ? (
-                    <Zoom bottom when={state}>
+                    <Zoom direction="down" delay={500} damping={0.1}>
                         <h1 className={"Studio-1-1-active"}>
                             <span> WE </span> CHANGED <span>THE </span>NAME!!
                         </h1>
                     </Zoom>
                 ) : (
                     <>
-                        <div className={titles ? "Studio-1-active" : "Studio-1"}>
-                            <Zoom left>
+                        <div className={"Studio-1-active"}>
+                            <Fade direction="up" cascade damping={0.1}>
                                 <h2>Our Story :</h2>
                                 <p>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Brain
@@ -58,13 +54,13 @@ const Studio = () => {
                                     produce animation films with innovative techniques through
                                     sustainable business practice while pacing global trends.
                                 </p>
-                            </Zoom>
+                            </Fade>
                         </div>
-                        <Zoom right>
+                        <Fade direction="right">
                             <div className={"Studio-2-active"}>
                                 <Img src={"/img/sutudio/ptum.webp"} alt={"Studio-1"} />
                             </div>
-                        </Zoom>
+                        </Fade>
                     </>
                 )}
             </div>

@@ -1,15 +1,10 @@
 .Studio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     margin-bottom: 100px;
 }
 .Studio-active {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     max-width: 1000px;
@@ -32,22 +27,10 @@
     margin: 0 12px;
     color: #ff8000;
 }
-.Studio-1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    max-height: 100%;
-    height: 100%;
-}
 .Studio-1-active {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     max-height: 100%;
     height: 100%;
@@ -85,4 +68,70 @@
 .Studio-2-active {
     display: block;
     margin-left: 40px;
+}
+
+@media screen and (max-width: 700px) {
+    .Studio-active {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        width: 100%;
+        margin: 20px;
+    }
+    .Studio-1-active {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 0;
+        max-height: 100%;
+        height: 100%;
+    }
+    .Studio-1-active h2 {
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #128b40;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .Studio-1-active p {
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 1.1px;
+        line-height: 1.5;
+        color: #e3e3e3;
+        margin: 0;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 900px) {
+    .Studio-1-active {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 0;
+        max-height: 100%;
+        height: 100%;
+    }
+    .Studio-1-active h2 {
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #128b40;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .Studio-1-active p {
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: 1.1px;
+        line-height: 1.5;
+        color: #e3e3e3;
+        margin: 0;
+        padding: 0;
+    }
 }

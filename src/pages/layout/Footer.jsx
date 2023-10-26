@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import { links, linksUp } from "./FootData";
-import Zoom from "react-reveal/Zoom";
+import { Fade } from "react-awesome-reveal";
 
 const Footer = () => {
     return (
         <>
             <footer className="border-top footer">
-                <Zoom bottom cascade>
+                <Fade direction="up" cascade damping={0.2} delay={500}>
                     <div className="footer-left">
                         <div>
                             <p>151 Sukhumvit 101/1, Bangchak,</p>
@@ -50,7 +50,7 @@ const Footer = () => {
                             <p>Cell: +669 4539 5991</p>
                         </div>
                     </div>
-                </Zoom>
+                </Fade>
             </footer>
         </>
     );

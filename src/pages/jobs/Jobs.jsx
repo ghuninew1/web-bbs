@@ -2,8 +2,7 @@ import { useState } from "react";
 import Layout from "../layout/Layout";
 import "./Jobs.css";
 import { links, jobsList } from "./jobdata";
-import Zoom from "react-reveal/Zoom";
-import Fade from "react-reveal/Fade";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { IoArrowForward } from "react-icons/io5";
 
 const Jobs = () => {
@@ -25,15 +24,10 @@ const Jobs = () => {
                 .filter((job, idx) => idx === jobsindex - 1)
                 .map((job, idx) => (
                     <div key={idx} className="jobs-main">
-                        <Fade right cascade>
+                        <Fade direction="up" cascade damping={0.1}>
                             <div className="jobs-header">
-                                <Zoom left cascade>
-                                    <img
-                                        src={`/img/jobs/icon_jobs_${jobsindex}.webp`}
-                                        alt={job.name}
-                                    />
-                                    <h1>{job.name}</h1>
-                                </Zoom>
+                                <img src={`/img/jobs/icon_jobs_${jobsindex}.webp`} alt={job.name} />
+                                <h1>{job.name}</h1>
                             </div>
                             <div className="description">
                                 <h2>{job.jobdescription.title}</h2>
@@ -42,11 +36,9 @@ const Jobs = () => {
                             <div className="requirements">
                                 <h2>{job.requirements.title}</h2>
                                 <ul>
-                                    <Zoom bottom cascade>
-                                        {job.requirements.list.map((requirement, idxx) => (
-                                            <li key={idxx}>{requirement}</li>
-                                        ))}
-                                    </Zoom>
+                                    {job.requirements.list.map((requirement, idxx) => (
+                                        <li key={idxx}>{requirement}</li>
+                                    ))}
                                 </ul>
                             </div>
                         </Fade>
@@ -58,19 +50,20 @@ const Jobs = () => {
     const jobsChange = (index) => {
         setActive(index);
     };
+
     return (
         <Layout title="Jobs">
             <div className="jobs-container">
-                <Zoom bottom when={active === 0}>
-                    <Zoom left>
+                {active === 0 && (
+                    <Zoom direction="up">
                         <ImgHeader />
                     </Zoom>
-                </Zoom>
+                )}
 
                 <ul className={active === 0 ? "jobs-list" : "jobs-list-active"}>
                     {links.map((link, index) => (
                         <li key={index} className="jobs-item">
-                            <Fade left={active === 0} right={active > 0}>
+                            <Fade direction="left" cascade damping={0.1} delay={300} duration={500}>
                                 <button
                                     onClick={() => jobsChange(index + 1)}
                                     className={

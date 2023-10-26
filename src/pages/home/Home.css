@@ -1,41 +1,85 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 100%;
+    margin: 0;
 }
-.home__video {
-    margin-bottom: 100px;
+.home h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    animation: translateIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+    transition: all 1s ease-in-out;
+}
+.home-video {
+    margin-bottom: 0;
     width: 100%;
     height: 100%;
     max-width: 960px;
-    animation: home 0.5s ease-out;
-    animation-delay: 0s;
+    margin: 0 auto;
+    transition: all 1s ease-in-out;
 }
-.home__video iframe {
+.home-video iframe {
     width: 100%;
+    margin-bottom: 50px;
+    animation: zoomIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+    transition: all 1s ease-in-out;
 }
 @media screen and (max-width: 700px) {
-    .home__video {
+    .home-video {
         margin-bottom: 50px;
         width: 100%;
-        max-width: 480px;
         height: 100%;
     }
-    .home__video iframe {
+    .home-video iframe {
         width: 100%;
-        max-width: 480px;
+    }
+    .home h1 {
+        margin-bottom: 50px;
+        font-size: 2.2rem;
+        font-weight: 600;
     }
 }
 
-@keyframes home {
+@keyframes zoomIn {
     0% {
+        transform: scale(0.5);
         opacity: 0;
-        transform: scale(0.1) translateX(-50%);
     }
     100% {
+        transform: scale(1);
         opacity: 1;
-        transform: scale(1) translateX(0);
+    }
+}
+@keyframes zoomOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+@keyframes translateIn {
+    0% {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes translateOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200%);
+        opacity: 0;
     }
 }

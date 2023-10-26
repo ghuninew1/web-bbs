@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Layout.css";
-import { UseScroll } from "../../store/DataContext";
-// import { motion, useScroll, useSpring } from "framer-motion";
+import scroll from "../../component/ScrollListener";
 
 const Layout = ({ children, title, totop = false }) => {
-    // const { scrollYProgress } = useScroll();
     const scollToRef = useRef(null);
     const [titles, setTitles] = useState("©Big Brain Studio");
-    const { y, lastY } = UseScroll();
+    const { lastY } = scroll();
 
     useEffect(() => {
         if (title) {
@@ -25,21 +23,19 @@ const Layout = ({ children, title, totop = false }) => {
             const useScrollBar = () => {
                 const scrollHeight = document.body.scrollHeight;
                 const innerHeight = window.innerHeight;
-                const scrollPercent = (scrollY / (scrollHeight - innerHeight)) * 100;
-                console.log("scrollPercent", scrollPercent);
-                // if (scrollPercent > 50) {
-
-                // }
+                const scrollPercent = (lastY / (scrollHeight - innerHeight)) * 100;
+                scollToRef.current = scrollPercent;
             };
+
             window.addEventListener("scroll", useScrollBar);
             return () => {
                 window.removeEventListener("scroll", useScrollBar);
             };
         }
-    }, [totop]);
+    }, [totop, lastY]);
 
     const showPercent = (value) => {
-        return <process value={value} />;
+        return <progress value={value} max="100" className="progress-bar" />;
     };
 
     const scrollToTop = () => {
@@ -52,26 +48,15 @@ const Layout = ({ children, title, totop = false }) => {
 
     return (
         <div className={"layout"}>
-            {/* {totop && (
-                <motion.div
-                    style={{
-                        scaleX,
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "2px",
-                        backgroundColor: "red",
-                        transformOrigin: "0%",
-                        zIndex: 9998,
-                    }}
-                />
-            )} */}
             {children}
             {totop && (
-                <button onClick={scrollToTop} className="totop">
-                    to top
-                </button>
+                <>
+                    {showPercent(scollToRef.current)}
+
+                    <button onClick={scrollToTop} className="totop">
+                        to top
+                    </button>
+                </>
             )}
         </div>
     );

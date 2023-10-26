@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home.jsx";
 import Studio from "./pages/Studio.jsx";
 import Jobs from "./pages/jobs/Jobs.jsx";
