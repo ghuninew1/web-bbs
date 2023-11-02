@@ -1,7 +1,8 @@
 import Layout from "../../pages/layout/Layout.jsx";
 import "./Annoucement.css";
 import Container from "react-bootstrap/Container";
-import { Col, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Anim from "../../component/Anim.jsx";
 
 const Annoucement = () => {

@@ -4,8 +4,10 @@ import "./Jobs.css";
 import { links, jobsList } from "./jobData";
 import { IoArrowForward } from "react-icons/io5";
 import Container from "react-bootstrap/Container";
-import { Image, Row, Col, Card } from "react-bootstrap";
-// import Anim from "../../component/Anim";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import { Link, Element, Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 const Jobs = () => {
@@ -86,10 +88,11 @@ const Jobs = () => {
                             offset={-250}
                             duration={500}
                             onSetActive={handleSetActive}
-                            className={"navlink"}
                         >
                             {active === `job${index}` && <IoArrowForward className="jobs-icon" />}
-                            <span className="jobs-link">{link.name && link.name}</span>
+                            <span className={active === `job${index}` ? "jobs-link-active" : ""}>
+                                {link.name && link.name}
+                            </span>
                         </Link>
                     </li>
                 ))}

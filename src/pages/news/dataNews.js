@@ -281,18 +281,18 @@ const dataNews04 = [
 ];
 
 const dataNews05 = [
-    {
-        id: 63,
-        src: "/img/news2/05/f/BIDC23_news_01.webp",
-        alt: "63",
-        swap: false,
-    },
-    {
-        id: 62,
-        src: "/img/news2/05/f/BIDC23_news_02.webp",
-        alt: "62",
-        swap: true,
-    },
+    // {
+    //     id: 63,
+    //     src: "/img/news2/05/f/BIDC23_news_01.webp",
+    //     alt: "63",
+    //     swap: false,
+    // },
+    // {
+    //     id: 62,
+    //     src: "/img/news2/05/f/BIDC23_news_02.webp",
+    //     alt: "62",
+    //     swap: true,
+    // },
     {
         id: 1,
         src: "/img/news2/05/01.webp",
@@ -470,12 +470,12 @@ const dataNews05 = [
 ];
 
 const dataNews06 = [
-    {
-        id: 0,
-        src: "/img/news2/06/f/studio_visit_news_headline.webp",
-        alt: "00",
-        swap: true,
-    },
+    // {
+    //     id: 0,
+    //     src: "/img/news2/06/f/studio_visit_news_headline.webp",
+    //     alt: "00",
+    //     swap: true,
+    // },
     {
         id: 1,
         src: "/img/news2/06/01.webp",
@@ -886,7 +886,7 @@ export const dataNews = [
         date: "September 30, 2023",
         title: "Kre8tif 2023: ",
         title2: "Latest Project Pitch and Big Brain Studio Showcase at KLCC, Kuala Lumpur",
-        src: "/img/news2/08.webp",
+        src: "/img/news2/all/05_01.webp",
         content: `Ker8tif 2023 brought a wave of excitement! We felt incredibly honored to have the opportunity to be a part of elevator pitch session to present our groundbreaking ideas to esteemed judges from leading broadcasters and respected industry experts. The invaluable feedback and insights we received were genuinely enriching. Showcasing our creative journey at our booth was equally delightful. Meeting and connecting with fellow creative minds and exploring potential collaborations was an incredibly positive experience. We are grateful for the memorable time we had in Kuala Lumpur!`,
         to: dataNews08,
         swap: false,
@@ -961,7 +961,8 @@ export const dataNews = [
         title: "Covid Pandemic ของ Big Brain Pictures คว้ารางวัล Best Animated Short สาขา Animation & Visual Effect",
         src: "/img/news/01.webp",
         content: "null",
-        to: "https://www.facebook.com/bidc.fest/videos/626999371281434/?redirect=false",
+        to: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fbidc.fest%2Fvideos%2F626999371281434%2F&show_text=false&width=560&t=0",
+        // to: "https://www.facebook.com/bidc.fest/videos/626999371281434/?redirect=false",
         swap: false,
     },
     {
@@ -970,7 +971,9 @@ export const dataNews = [
         title: "BidcAward สาขา Animation & Visual Effect Best VFX in TV Commercial",
         src: "/img/news/02.webp",
         content: "null",
-        to: "https://www.facebook.com/823379977752236/posts/3281749348581941/?d=n",
+        to: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbidc.fest%2Fposts%2Fpfbid0XmJaYYomXbchhMzwoGaNjGuqitS2FJcjGafPH8Et5AyZLn3idGanRvtRMBhyWqbAl&show_text=true&width=560&t=0",
+
+        // to: "https://www.facebook.com/823379977752236/posts/3281749348581941/?d=n",
         swap: true,
     },
     {
@@ -988,7 +991,7 @@ export const dataNews = [
         title: "VMware ผู้ให้บริการเทคโนโยลีชั้นนำและบริการระบบเสมือนจริงแบบ Cloud  จัดงานประกาศรางวัลพันธมิตรยอดเยี่ยม ที่สยามสมาคมในพระบรมราชูปถัมป์",
         src: "/img/news/04.webp",
         content: "null",
-        to: "#",
+        to: null,
         swap: true,
     },
     {
@@ -997,7 +1000,8 @@ export const dataNews = [
         title: "AIS Business Solutions ได้จัดงานสัมมนาในหัวข้อ “AIS Cloud Solutions for Animation Industry” ซึ่งเน้นให้ความรู้เกี่ยวกับเทคโนโลยี พร้อมเจาะลึกเรื่องการนำเทคโนโลยี Cloud มาใช้ประโยชน์ในธุรกิจผู้ผลิต Animation ในเมืองไทย",
         src: "/img/news/05.webp",
         content: "null",
-        to: "https://www.facebook.com/AISBusinessSolution/posts/858467487648190",
+
+        to: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAISBusinessSolution%2Fposts%2Fpfbid0wp2ULpXXjYictoWsQrcPHNsjTn3aKcK2eS6dHN4NovH2JwvM4rvpAHYiJ2yM6kATl&show_text=true&width=500",
         swap: false,
     },
     {
@@ -1024,7 +1028,8 @@ export const dataNews = [
         title: "ของขวัญจากดิน แอนิเมชั่นเทิดพระเกียรติตามรอยแนวคิดศาสตร์พระราชา",
         src: "/img/news/08.webp",
         content: "null",
-        to: "https://mono29.com/episode/181888.html",
+        // to: "https://mono29.com/episode/181888.html",
+        to: "https://seeme.me/ch/entertainmentnow/embed/kp2QmM",
         swap: true,
     },
     {
@@ -1078,7 +1083,7 @@ export const dataNews = [
         title: `เยี่ยมโครงการส่วนพระองค์ สวนจิตรลดา แหล่งทดลองและจุดกำเนิดของโครงการพระราชดำริในพระบาทสมเด็จพระปรมินทรมหาภูมิพลอดุลยเดชบรมนาถบพิตร`,
         src: "/img/news/14.webp",
         content: "null",
-        to: "#",
+        to: "null",
         swap: true,
     },
     {
@@ -1087,7 +1092,7 @@ export const dataNews = [
         title: `ศึกษาดูงาน “ประเพณีบุญบั้งไฟ” บูชาพญาแถนขอฝน จังหวัดชัยภูมิ`,
         src: "/img/news/15.webp",
         content: "null",
-        to: "#",
+        to: "null",
         swap: false,
     },
     {
@@ -1096,7 +1101,7 @@ export const dataNews = [
         title: `เยี่ยมโครงการโรงเรียนกาสรกสิวิทย์ จังหวัดสระแก้ว โรงเรียนที่ฝึกกระบือให้เชื่องและไถนาได้อย่างชำนาญ`,
         src: "/img/news/16.webp",
         content: "null",
-        to: "#",
+        to: "null",
         swap: true,
     },
     {
@@ -1105,7 +1110,7 @@ export const dataNews = [
         title: `ศึกษาดูงานสถาปัตยกรรมของภาคอีสาน “หมู่บ้านอีสาน จิม ทอมป์สัน ฟาร์ม” จังหวัดนครราชสีมา`,
         src: "/img/news/17.webp",
         content: "null",
-        to: "#",
+        to: "null",
         swap: false,
     },
     {

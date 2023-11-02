@@ -1,19 +1,18 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./pages/layout/navbar/NavBar";
-import Footer from "./pages/layout/Footer";
-import Header from "./pages/layout/Header";
+import Footer from "./pages/layout/footer/Footer";
+import Header from "./pages/layout/header/Header";
 import Container from "react-bootstrap/Container";
 import UseScroll from "./component/UseScroll";
-import Banner from "./pages/layout/Banner";
-import Anim from "./component/Anim";
+import Banner from "./pages/layout/header/Banner";
 
 export default function Root() {
     return (
-        <>
+        <Container fluid className="g-0">
             <Banner />
             <div className="layout-container">
                 <header>
-                    <UseScroll sec={300}>
+                    <UseScroll sec={400}>
                         <Header />
                         <NavBar />
                     </UseScroll>
@@ -24,6 +23,6 @@ export default function Root() {
                 </main>
                 <Footer />
             </div>
-        </>
+        </Container>
     );
 }

@@ -13,7 +13,7 @@ function ModelIframe(props) {
     const [slide] = useContext(ImageSlideContext);
 
     return (
-        <Modal {...props} fullscreen backdrop centered>
+        <Modal {...props} backdrop="static" centered size="xl">
             <Modal.Body onClick={props.onHide}>
                 <Container>
                     <Row>
@@ -22,13 +22,11 @@ function ModelIframe(props) {
                             <Ratio aspectRatio="16x9">
                                 {slide?.to && (
                                     <iframe
-                                        src={slide?.to}
-                                        title={slide?.title}
-                                        allowFullScreen
+                                        src={slide?.to ? slide?.to : ""}
                                         frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-presentation"
-                                    />
+                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
+                                        onClick={(e) => window.open(e.target.src, "_blank")}
+                                    ></iframe>
                                 )}
                             </Ratio>
                         </Col>

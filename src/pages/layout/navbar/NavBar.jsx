@@ -1,28 +1,21 @@
 import { NavLink, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-// import "bootstrap/dist/css/bootstrap.css";
+import { useState } from "react";
 import navLinks from "./navLinks.js";
-import { FiMenu } from "react-icons/fi";
 import "./NavBar.css";
-import { Container, Navbar, Image } from "react-bootstrap";
-// import { Link, Element } from "react-scroll";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Image from "react-bootstrap/Image";
 import { animateScroll as scroll } from "react-scroll";
+import Logo from "../../../assets/logo.webp";
+import { TfiAlignJustify, TfiClose } from "react-icons/tfi";
 
 const NavBar = () => {
     const { LinksMain } = navLinks();
     const [boolean, setBoolean] = useState(false);
 
     const handleToggle = () => {
-        // const nav = document.querySelector(".navbar-collapse");
-        // nav.classList.toggle("show");
         setBoolean(!boolean);
     };
-
-    // const scrollTo = (ref) => {
-    //     if (ref /* + other conditions */) {
-    //         ref.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
-    //     }
-    // };
 
     const scrollTo = () => {
         setBoolean(false);
@@ -42,23 +35,33 @@ const NavBar = () => {
     };
 
     return (
-        <div className="border-bottom bg-dark">
-            <Navbar expand="md" expanded={boolean} className="p-0 mx-1">
+        <div className="border-bottom">
+            <Navbar expand="md" expanded={boolean} bg="dark" variant="dark" className="g-0">
                 <Container fluid="lg" className="g-0">
                     <Navbar.Brand>
-                        <Link to="/" className="nav-logo-li mx-1">
-                            <Image src="/img/apple-icon-180x180.webp" />
+                        <Link to="/" className="nav-logo-li mx-1 ">
+                            <Image src={Logo} fluid />
                         </Link>
                     </Navbar.Brand>
-                    <Navbar.Toggle
+                    {/* <Navbar.Toggle
+                        aria-controls="responsive-navbar-nav"
                         style={{
-                            backgroundColor: boolean ? "#d77f2d" : "#000",
-                            color: boolean ? "#000" : "#fff",
+                            backgroundColor: boolean ? "#773f1946" : "",
+                        }}
+                        onClick={handleToggle}
+                        className="mx-1"
+                    /> */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        style={{
+                            backgroundColor: boolean ? "#d77f2d" : "",
                         }}
                         onClick={handleToggle}
                     >
-                        <FiMenu className="nav-icon" />
-                    </Navbar.Toggle>
+                        {boolean ? <TfiClose /> : <TfiAlignJustify />}
+                    </button>
+
                     <Navbar.Collapse>
                         {LinksMain &&
                             LinksMain.map((link) => (

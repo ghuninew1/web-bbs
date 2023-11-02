@@ -1,3 +1,6 @@
+.contact-row {
+    box-shadow: 0 0 2px #696868;
+}
 .contact-form {
     width: 100%;
     margin: 0 auto;
@@ -7,7 +10,6 @@
 .contact-form button {
     font-size: 18px;
     letter-spacing: 0.7px;
-    transition: all 0.3s ease;
 }
 .contact-form button:hover {
     transform: scale(1.1);
@@ -16,7 +18,7 @@
 }
 .contact-link {
     text-decoration: none;
-    transition: all 0.3s ease;
+    animation: contact-zoomIn 0.8s ease-in-out;
 }
 .contact-link:hover {
     filter: brightness(0.4);
@@ -24,23 +26,26 @@
     transition: all 0.3s ease;
 }
 .contact-left {
-    box-shadow: 0 0 1px #ddd;
+    border-radius: 5px;
     padding: 0;
     margin: 0;
+    animation: contact-zoomInLeft 0.6s ease;
 }
 .contact-right {
-    box-shadow: 0 0 1px #ddd;
     padding: 0;
     margin: 0;
+    animation: contact-zoomInRight 0.6s ease;
 }
 .contact-info {
     margin: 0;
     padding: 0;
     color: #d3d2d2;
+    text-align: end;
 }
 .contact-info h3 {
     font-size: 23px;
     letter-spacing: 0.8px;
+    line-height: 1.5;
 }
 .contact-info p {
     font-size: 18px;
@@ -55,25 +60,68 @@
     }
     .contact-link {
         text-decoration: none;
-        transition: all 0.3s ease-in-out;
     }
     .contact-link:hover {
         filter: brightness(0.4);
         transform: scale(1.2);
-        transition: all 0.3s ease-in-out;
     }
     .contact-info {
         margin: 0;
         padding: 0;
         color: #d3d2d2;
+        text-align: center;
     }
     .contact-info h3 {
         font-size: 22px;
         letter-spacing: 0.8px;
+        line-height: 1.5;
     }
     .contact-info p {
-        font-size: 16px;
+        font-size: 17px;
         line-height: 1.5;
         letter-spacing: 0.7px;
+    }
+    .contact-right {
+        padding: 0;
+        margin: 0;
+    }
+    .contact-left {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 50px;
+    }
+    .form-btn {
+        width: 100%;
+    }
+}
+
+@keyframes contact-zoomInLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes contact-zoomInRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes contact-zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }

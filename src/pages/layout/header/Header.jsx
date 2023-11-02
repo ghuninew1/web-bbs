@@ -1,5 +1,5 @@
 import "./Header.css";
-import { Anim } from "../../component/Anim";
+import Anim from "../../../component/Anim";
 
 const Header = () => {
     return (

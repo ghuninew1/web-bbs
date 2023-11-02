@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { links, linksUp } from "./FootData";
 import Container from "react-bootstrap/Container";
 import "./Footer.css";
-import Anim from "../../component/Anim";
+import Anim from "../../../component/Anim";
 import Image from "react-bootstrap/Image";
 
 const Footter = () => {

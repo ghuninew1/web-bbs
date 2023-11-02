@@ -19,14 +19,7 @@ const ServiceDatas = () => {
                                         key={item.id + idx}
                                         className={`service-item-${item.id} service-img`}
                                     >
-                                        <Image
-                                            key={item.id + idx}
-                                            src={item.src}
-                                            // alt={item.alt}
-                                            // width={item.width}
-                                            // height={item.high}
-                                            // className={`service-item-${item.id}`}
-                                        />
+                                        <Image key={item.id + idx} src={item.src} />
                                     </span>
                                 ))}
                         </Anim>

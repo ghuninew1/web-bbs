@@ -1,16 +1,15 @@
 import { useRef, useContext, useEffect, useState } from "react";
 import "./News.css";
-// import { Link } from "react-router-dom";
 import { dataNews } from "./dataNews";
 import { ImageSlideContext } from "../../store/ImageSlideContext.jsx";
 import Layout from "../layout/Layout";
 import Container from "react-bootstrap/Container";
-import { Col, Row, Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import ModelNews from "./ModelNews";
 import Anim from "../../component/Anim";
 import ModelIframe from "./ModelIframe.jsx";
-
-// const result = import.meta.globEager("../../../public/img/news2/*");
 
 const News = () => {
     const dataRef = useRef(dataNews);
@@ -39,19 +38,17 @@ const News = () => {
         changeSlide(null);
     };
 
-    console.log("slide", slide);
-
     return (
-        <Layout title="News" totop={slide?.length > 0 ? false : true}>
+        <Layout title="News" totop={slide?.to.length > 0 ? false : true}>
             {show && <ModelNews show={show} onHide={closeModel} />}
             {showIframe && <ModelIframe show={showIframe} onHide={closeModel} />}
 
-            <Container fluid="lg">
+            <Container fluid="lg" className="g-0">
                 <Anim type={"fadeIn"} delay={300} duration={800}>
                     {dataRef.current?.map((item) => (
                         <Row
                             key={item.id}
-                            className={`mb-5 mt-5 text-center 
+                            className={`text-center news-container
                         ${item.swap ? "flex-row-reverse" : ""}`}
                         >
                             <Col lg={5} md={12} className="news-frist-col">

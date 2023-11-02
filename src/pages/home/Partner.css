@@ -1,22 +1,18 @@
 .partner {
     background-color: #fff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     overflow: hidden;
 }
 .partner p {
     font-size: 35px;
     font-family: font1;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
-.partner .partner-container {
+/* .partner .partner-container {
     padding: 0;
     margin: 0 auto;
-    display: flex;
-}
+} */
 .partner-logo1 {
     display: flex;
     justify-content: center;
@@ -39,8 +35,6 @@
     display: flex;
     justify-content: end;
     align-items: center;
-
-    margin: 0 auto;
 }
 .partner-logo3-4 {
     margin: 0 auto;
@@ -67,7 +61,7 @@
     animation-name: slideInpathner;
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation-delay: 1.3s;
+    animation-delay: 1s;
 }
 .partner-logo-25 img {
     max-height: 80px;
@@ -265,23 +259,13 @@
     .partner-container {
         width: 100%;
     }
-    .partner-logo1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
-    }
-    .partner-logo2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
-    }
-
     .partner-logo1 img {
         width: 100% !important;
         margin: 0;
         padding: 0;
+    }
+    .partner-logo2 {
+        margin-top: 10px;
     }
     .partner-logo2 img {
         width: 100% !important;
@@ -289,10 +273,23 @@
         padding: 0;
     }
 
+    .partner-logo3 {
+        margin: 0;
+        padding: 0;
+    }
     .partner-logo4 {
-        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
+    .partner-logo-3-4 {
+        margin: 0;
+        padding: 0;
+    }
+    .partner-logo-3-4-1 {
+        margin: 0;
+        padding: 0;
+    }
     .partner-logo-3-4-1 img {
         width: 100% !important;
         margin: 0;

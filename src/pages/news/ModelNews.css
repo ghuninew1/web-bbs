@@ -1,5 +1,10 @@
 .modal-content {
-    background-color: #000000e3 !important;
+    background-color: rgba(1, 1, 1, 0.924) !important;
+}
+.modal-content .row {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
 }
 .model-col {
     position: relative;
@@ -85,10 +90,17 @@
 .model-title {
     font-size: 18px;
     line-height: 1.5;
+    /* letter-spacing: 1px; */
+    text-align: center;
 }
 .model-content {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.5;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+.model-content:first-letter {
+    padding-left: 20px;
 }
 
 .carousel__dots {
@@ -102,7 +114,7 @@
 
 .carousel__dot {
     cursor: pointer;
-    padding: 2px;
+    padding: 2.5px;
     margin: 5px;
     border-radius: 50%;
     background-color: #4f4f4f;
@@ -149,18 +161,27 @@
 }
 
 @media screen and (max-width: 768px) {
+    .modal-content {
+        padding-top: 40px;
+        background-color: rgb(1, 1, 1) !important;
+    }
     .model-img img {
-        max-height: 40vh;
+        max-height: 50vh;
     }
     .model-title {
         font-size: 16px;
+        text-align: center;
     }
     .model-content {
-        font-size: 15px;
+        font-size: 14px;
+        text-align: justify;
+    }
+    .model-content:first-letter {
+        padding-left: 20px;
     }
     .carousel__dot {
         cursor: pointer;
-        padding: 1px;
+        padding: 1.5px;
         margin: 3px;
         border-radius: 50%;
         background-color: #797979;

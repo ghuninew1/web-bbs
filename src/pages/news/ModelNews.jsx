@@ -47,7 +47,14 @@ function ModelNews(props) {
     };
 
     return (
-        <Modal {...props} fullscreen backdrop centered>
+        <Modal
+            {...props}
+            backdrop="static"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            fullscreen
+            size="xl"
+        >
             <Modal.Body>
                 <Container>
                     <Row>
@@ -92,11 +99,11 @@ function ModelNews(props) {
                                     ))}
                             </div>
                         </Col>
-                        <Col md={12} className="model-title text-center mb-3 mt-5">
+                        <Col md={12} className="model-title mb-3 mt-5">
                             {slide?.title && <p>{slide?.title}</p>}
                             {slide?.title2 && <p>{slide?.title2}</p>}
                         </Col>
-                        <Col md={12} className="model-content text-center">
+                        <Col md={12} className="model-content ">
                             {slide?.content && <p>{slide?.content}</p>}
                         </Col>
                     </Row>

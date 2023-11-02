@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Layout from "./../layout/Layout.jsx";
-import { Img } from "../../component/utils.jsx";
 import Container from "react-bootstrap/Container";
-import { Col, Row, Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import "./Studio.css";
 import Anim from "../../component/Anim.jsx";
 

@@ -44,10 +44,8 @@ body {
     user-select: none;
     background-color: #000;
 }
-.layout-container {
-    position: relative;
+#root {
     min-height: 100vh;
-    overflow: hidden;
 }
 header.ontop {
     position: fixed;

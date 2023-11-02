@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Layout.css";
-import Container from "react-bootstrap/Container";
 import ScrollListener from "../../component/ScrollListener";
 
 const Layout = ({ children, title, totop = false, ...props }) => {

@@ -60,7 +60,7 @@ const getAnimationCss = ({ keyframes, animationDuration }) => {
     return css`
         animation-duration: ${animationDuration || "300ms"};
         animation-iteration-count: 1;
-        animation-timing-function: linear;
+        animation-timing-function: ease;
         animation-delay: 0ms;
         animation-name: ${keyframes};
         animation-direction: normal;
