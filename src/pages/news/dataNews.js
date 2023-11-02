@@ -282,6 +282,18 @@ const dataNews04 = [
 
 const dataNews05 = [
     {
+        id: 63,
+        src: "/img/news2/05/f/BIDC23_news_01.webp",
+        alt: "63",
+        swap: false,
+    },
+    {
+        id: 62,
+        src: "/img/news2/05/f/BIDC23_news_02.webp",
+        alt: "62",
+        swap: true,
+    },
+    {
         id: 1,
         src: "/img/news2/05/01.webp",
         alt: "01",
@@ -458,6 +470,12 @@ const dataNews05 = [
 ];
 
 const dataNews06 = [
+    {
+        id: 0,
+        src: "/img/news2/06/f/studio_visit_news_headline.webp",
+        alt: "00",
+        swap: true,
+    },
     {
         id: 1,
         src: "/img/news2/06/01.webp",
@@ -806,12 +824,12 @@ const dataNews08 = [
         alt: "52",
         swap: true,
     },
-    {
-        id: 53,
-        src: "/img/news2/08/53.webp",
-        alt: "53",
-        swap: false,
-    },
+    // {
+    //     id: 53,
+    //     src: "/img/news2/08/53.webp",
+    //     alt: "53",
+    //     swap: false,
+    // },
     {
         id: 54,
         src: "/img/news2/08/54.webp",
@@ -866,7 +884,8 @@ export const dataNews = [
     {
         id: 1,
         date: "September 30, 2023",
-        title: "Kre8tif 2023: Latest Project Pitch and Big Brain Studio Showcase at KLCC, Kuala Lumpur",
+        title: "Kre8tif 2023: ",
+        title2: "Latest Project Pitch and Big Brain Studio Showcase at KLCC, Kuala Lumpur",
         src: "/img/news2/08.webp",
         content: `Ker8tif 2023 brought a wave of excitement! We felt incredibly honored to have the opportunity to be a part of elevator pitch session to present our groundbreaking ideas to esteemed judges from leading broadcasters and respected industry experts. The invaluable feedback and insights we received were genuinely enriching. Showcasing our creative journey at our booth was equally delightful. Meeting and connecting with fellow creative minds and exploring potential collaborations was an incredibly positive experience. We are grateful for the memorable time we had in Kuala Lumpur!`,
         to: dataNews08,
@@ -884,7 +903,8 @@ export const dataNews = [
     {
         id: 3,
         date: "June 21, 2023",
-        title: "Glad to Host: Armada TMT Studio, the French Embassy, Warner Bros Discovery, and Yomzeo Studio Pay Us a Friendly Visit!",
+        title: "Glad to Host: ",
+        title2: "Armada TMT Studio, the French Embassy, Warner Bros Discovery, and Yomzeo Studio Pay Us a Friendly Visit!",
         src: "/img/news2/06.webp",
         content: `Our studio was delighted to welcome our esteemed guests. We extend our gratitude to Ms. Onmadee 'Cherry' Purapati from TACGA for arranging the visit, which included Mr. Sidi Benlarbi from Armada TMT/Xilam Studio (VN/FR), as well as Mr. Jérémy Segay and Mr. Julien Lacorne from the French Embassy. We also had the pleasure of hosting Mr. Andre Seungwook Lee from Yomzeo (KR/FR), and last but not least, Ms. Carlene Tan from Warner Bros Discovery (SG). We had an amazing time together, and we're eagerly anticipating future collaborative opportunities. Stay tuned for exciting ventures!`,
         to: dataNews06,
@@ -902,7 +922,7 @@ export const dataNews = [
     {
         id: 5,
         date: "July 01, 2023",
-        title: "Work Hard, Play Hard – Explore Thailand with Big Brain Studio",
+        title: "Work Hard, Play Hard - Explore Thailand with Big Brain Studio",
         src: "/img/news2/04.webp",
         content: `After some hard work, we're taking a break to enjoy Thailand's beauty, recharge our creative energy, and uncover hidden gems right in our backyard. It's been a blast! We've engaged in lots of fun activities, creating unforgettable memories along the way.`,
         to: dataNews04,
@@ -995,7 +1015,7 @@ export const dataNews = [
         title: `ทีมผู้สร้างชวนดู "ของขวัญจากดิน" ภาพยนตร์อนิเมชั่นเพื่อคนไทย`,
         src: "/img/news/07.webp",
         content: "null",
-        to: "https://www.youtube.com/watch?v=At60iuM6EvE",
+        to: "https://www.youtube.com/embed/At60iuM6EvE",
         swap: false,
     },
     {
@@ -1013,7 +1033,7 @@ export const dataNews = [
         title: `แอนิเมชั่นเล่าศาสตร์พระราชา "ของขวัญจากดิน"ฉายทางทีวีทั่วประเทศ`,
         src: "/img/news/09.webp",
         content: "null",
-        to: "https://www.youtube.com/watch?v=bU5_w4PuH1A",
+        to: "https://www.youtube.com/embed/bU5_w4PuH1A",
         swap: false,
     },
     {
@@ -1022,7 +1042,7 @@ export const dataNews = [
         title: "แถลงข่าวเปิดตัวภาพยนตร์แอนิเมชั่นเทิดพระเกียรติ “ของขวัญจากดิน”",
         src: "/img/news/10.webp",
         content: "null",
-        to: "https://www.youtube.com/watch?v=vRrbwB9I0Zo",
+        to: "https://www.youtube.com/embed/vRrbwB9I0Zo",
         swap: true,
     },
     {
@@ -1040,7 +1060,7 @@ export const dataNews = [
         title: `แถลงข่าวเปิดตัวภาพยนตร์แอนิเมชั่นเทิดพระเกียรติ “ของขวัญจากดิน"`,
         src: "/img/news/12.webp",
         content: "null",
-        to: "https://www.youtube.com/watch?v=vRrbwB9I0Zo",
+        to: "https://www.youtube.com/embed/vRrbwB9I0Zo",
         swap: true,
     },
     {

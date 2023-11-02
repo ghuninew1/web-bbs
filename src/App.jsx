@@ -2,13 +2,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Home from "./pages/home/Home.jsx";
-import Studio from "./pages/Studio.jsx";
+import Studio from "./pages/studio/Studio.jsx";
 import Jobs from "./pages/jobs/Jobs.jsx";
-import Service from "./pages/Service.jsx";
+import Service from "./pages/service/Service.jsx";
 import News from "./pages/news/News.jsx";
-import Annoucement from "./pages/Annoucement.jsx";
-import Contact from "./pages/Contact.jsx";
+import Annoucement from "./pages/annoucement/Annoucement.jsx";
+import Contact from "./pages/contact/Contact.jsx";
 import UseImageSlide from "./store/ImageSlideContext.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
     const pages = [

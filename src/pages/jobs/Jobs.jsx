@@ -1,89 +1,103 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import "./Jobs.css";
-import { links, jobsList } from "./jobdata";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { links, jobsList } from "./jobData";
 import { IoArrowForward } from "react-icons/io5";
+import Container from "react-bootstrap/Container";
+import { Image, Row, Col, Card } from "react-bootstrap";
+// import Anim from "../../component/Anim";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 const Jobs = () => {
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState("jobs-img");
 
-    const ImgHeader = () => {
-        return (
-            <img
-                src="/img/jobs/we_need_you.webp"
-                alt="jobs"
-                className={active === 0 ? "jobs-img" : "jobs-img-active"}
-            />
-        );
+    useEffect(() => {
+        Events.scrollEvent.register("begin", (to, element) => {
+            // console.log("begin", to, element);
+            setActive(to);
+        });
+
+        // Events.scrollEvent.register("end", (to, element) => {
+        //     console.log("end", to, element);
+        // });
+        scrollSpy.update();
+
+        return () => {
+            Events.scrollEvent.remove("begin");
+            Events.scrollEvent.remove("end");
+        };
+    }, []);
+
+    const handleSetActive = (to) => {
+        setActive(to);
     };
 
-    const GetJobs = ({ jobsindex }) => {
-        if (jobsindex > 0) {
-            return jobsList
-                .filter((job, idx) => idx === jobsindex - 1)
-                .map((job, idx) => (
-                    <div key={idx} className="jobs-main">
-                        <Fade direction="up" cascade damping={0.1}>
-                            <div className="jobs-header">
-                                <img src={`/img/jobs/icon_jobs_${jobsindex}.webp`} alt={job.name} />
-                                <h1>{job.name}</h1>
-                            </div>
-                            <div className="description">
-                                <h2>{job.jobdescription.title}</h2>
+    const GetJobs = () => {
+        return jobsList.map((job, idx) => (
+            <Row key={idx} className="mt-5 pt-5 mb-5 jobs-row">
+                <Col md={12} className="mt-5 py-5">
+                    <Element name={`job${idx}`}>
+                        <Card className="jobs-requirements">
+                            <Card.Img variant="top" src={`/img/jobs/icon_jobs_${idx + 1}.webp`} />
+                            <Card.Body>
+                                <Card.Title>
+                                    <h2> {job.name}</h2>
+                                    <h5>{job.jobdescription.title}</h5>
+                                </Card.Title>
                                 <p>{job.jobdescription.description}</p>
-                            </div>
-                            <div className="requirements">
-                                <h2>{job.requirements.title}</h2>
-                                <ul>
-                                    {job.requirements.list.map((requirement, idxx) => (
-                                        <li key={idxx}>{requirement}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </Fade>
-                    </div>
-                ));
-        }
-    };
-
-    const jobsChange = (index) => {
-        setActive(index);
+                            </Card.Body>
+                            <Card.Body>
+                                <h5>{job.requirements.title}</h5>
+                                {job.requirements.list.map((requirement, idxx) => (
+                                    <li key={idxx}>{requirement}</li>
+                                ))}
+                            </Card.Body>
+                        </Card>
+                    </Element>
+                </Col>
+            </Row>
+        ));
     };
 
     return (
         <Layout title="Jobs">
-            <div className="jobs-container">
-                {active === 0 && (
-                    <Zoom direction="up">
-                        <ImgHeader />
-                    </Zoom>
-                )}
-
-                <ul className={active === 0 ? "jobs-list" : "jobs-list-active"}>
-                    {links.map((link, index) => (
-                        <li key={index} className="jobs-item">
-                            <Fade direction="left" cascade damping={0.1} delay={300} duration={500}>
-                                <button
-                                    onClick={() => jobsChange(index + 1)}
-                                    className={
-                                        active === index + 1 ? "jobs-link active" : "jobs-link"
-                                    }
-                                >
-                                    {active === index + 1 && (
-                                        <IoArrowForward className="jobs-link-icon" />
-                                    )}
-                                    {link.name}
-                                </button>
-                            </Fade>
-                        </li>
-                    ))}
-                </ul>
-                <div className="jobs-main-container">
-                    {/* <Outlet /> */}
-                    {active > 0 && <GetJobs jobsindex={active} />}
-                </div>
+            <Link
+                to="jobs-img"
+                spy={true}
+                smooth={true}
+                offset={-250}
+                duration={500}
+                onSetActive={handleSetActive}
+            />
+            <div className={active === "jobs-img" ? "jobs-img-active" : "jobs-img"}>
+                <Element name="jobs-img">
+                    <Image src="/img/jobs/we_need_you.webp" width={300} />
+                </Element>
             </div>
+
+            <ul className={active !== "jobs-img" ? "jobs-menu-active" : "jobs-menu"}>
+                {links.map((link, index) => (
+                    <li key={index}>
+                        <Link
+                            key={index}
+                            to={`job${index}`}
+                            spy={true}
+                            smooth={true}
+                            offset={-250}
+                            duration={500}
+                            onSetActive={handleSetActive}
+                            className={"navlink"}
+                        >
+                            {active === `job${index}` && <IoArrowForward className="jobs-icon" />}
+                            <span className="jobs-link">{link.name && link.name}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+
+            <Container className="jobs-container">
+                <GetJobs />
+            </Container>
         </Layout>
     );
 };

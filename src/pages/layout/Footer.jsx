@@ -1,59 +1,56 @@
 import { Link } from "react-router-dom";
-import "./Footer.css";
 import { links, linksUp } from "./FootData";
-import { Fade } from "react-awesome-reveal";
+import Container from "react-bootstrap/Container";
+import "./Footer.css";
+import Anim from "../../component/Anim";
+import Image from "react-bootstrap/Image";
 
-const Footer = () => {
+const Footter = () => {
     return (
         <>
-            <footer className="border-top footer">
-                <Fade direction="up" cascade damping={0.2} delay={500}>
-                    <div className="footer-left">
-                        <div>
-                            <p>151 Sukhumvit 101/1, Bangchak,</p>
-                            <p>Phrakhanong, Bangkok 10260, Thailand</p>
-                        </div>
-                        <br />
-                        <div>
-                            <p>Copyright ©Big Brain Studio</p>
-                        </div>
-                    </div>
-
-                    <div className="footer-center">
-                        <div>
+            <Anim type={"slideInUp"} delay={1000} duration={1000} className="mb-4 mt-4 border-top">
+                <footer className="d-flex row mt-3 m-0 p-0">
+                    <Container className="col-md-5 footer-left">
+                        <p>151 Sukhumvit 101/1, Bangchak,</p>
+                        <p>Phrakhanong, Bangkok 10260, Thailand</p>
+                        <p>Copyright ©Big Brain Studio</p>
+                    </Container>
+                    <Container className="footer-center col-md-2 text-decoration-none">
+                        <span className="footer-center-down ">
                             {links.map((link, index) => (
                                 <Link key={index} to={link.to}>
-                                    <img src={link.src} alt={link.name} />
+                                    <Image src={link.src} alt={link.name} roundedCircle />
                                 </Link>
                             ))}
-                        </div>
-                        <div>
-                            {linksUp.map((link, index) => (
-                                <Link key={index} to={link.to}>
-                                    <img src={link.src} alt={link.name} />
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="footer-right">
-                        <div>
+                            <div className="footer-center-up">
+                                {linksUp.map((link, index) => (
+                                    <Link key={index} to={link.to}>
+                                        <Image src={link.src} alt={link.name} roundedCircle />
+                                    </Link>
+                                ))}
+                            </div>
+                        </span>
+                    </Container>
+
+                    <ul className="footer-right col-md-5 ">
+                        <li className="">
+                            <a href="mailto:iambigbrainstudio@gmail.com" className="footer-item ">
+                                Email: contact@bigbrain-studio.com
+                            </a>
+                        </li>
+                        <li className="footer-item2  ">
                             <p>
-                                Email:&nbsp;
-                                <Link to="mailto:iambigbrainstudio@gmail.com">
-                                    iambigbrainstudio@gmail.com
-                                </Link>
+                                Fax: +662 118 3624 <span>Tel: +662 118 3920</span>
                             </p>
-                        </div>
-                        <br />
-                        <div>
-                            <p>Fax: +662 118 3624&nbsp; Tel: &nbsp;+662 118 3920</p>
+                        </li>
+                        <li className="footer-item3 ">
                             <p>Cell: +669 4539 5991</p>
-                        </div>
-                    </div>
-                </Fade>
-            </footer>
+                        </li>
+                    </ul>
+                </footer>
+            </Anim>
         </>
     );
 };
 
-export default Footer;
+export default Footter;

@@ -1,25 +1,19 @@
-import Banner from "./Banner";
 import "./Header.css";
-import { Fade } from "react-awesome-reveal";
+import { Anim } from "../../component/Anim";
 
 const Header = () => {
     return (
-        <>
-            <Banner />
-            <Fade cascade direction="up" triggerOnce>
-                <div className={"Header"}>
-                    <p>
-                        BIG BRAIN &nbsp;<span>STUDIO</span>
-                    </p>
-                </div>
-                <div className="Header-text">
-                    <p>
-                        Create&nbsp;<span> the&nbsp;</span> Creation&nbsp;<span> of&nbsp;</span>{" "}
-                        Animation Intellectual Properties &nbsp; <span>and&nbsp;</span> Contents.
-                    </p>
-                </div>
-            </Fade>
-        </>
+        <Anim type={"fadeInUp"} delay={300} className={"header-page"}>
+            <p className="header-banner">
+                BIG BRAIN<span>STUDIO</span>
+            </p>
+            <span className="header-banner-text">
+                <p>
+                    Create<span>the</span>Creation<span>of</span>
+                    Animation Intellectual Properties<span>and</span>Contents.
+                </p>
+            </span>
+        </Anim>
     );
 };
 

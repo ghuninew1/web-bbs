@@ -1,0 +1,220 @@
+.service-bg {
+    text-align: center;
+    margin: 0 auto;
+}
+.service-content {
+    background: no-repeat center/100% url("/img/service/bg.webp");
+    width: 860px;
+    height: 727px;
+    min-width: 860px;
+    position: relative;
+    margin: 0 auto;
+}
+.service-img img {
+    border: none;
+    width: 100%;
+    z-index: 999;
+}
+.service-img img:hover {
+    transform: scale(1.3) translate3d(-5px, -5px, 0);
+    filter: drop-shadow(0 0 3px #0000005d);
+    transition: all 0.2s ease;
+    z-index: 9991;
+}
+
+@media screen and (max-width: 768px) {
+    .service-content {
+        max-width: 860px;
+        max-height: 727px;
+        background-size: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.service-item-1 {
+    position: absolute;
+    left: 40%;
+    /* width: 15%; */
+    top: 20px;
+}
+.service-item-2 {
+    position: absolute;
+
+    left: 209px;
+    /* width: 15%; */
+    top: 81px;
+}
+.service-item-3 {
+    position: absolute;
+
+    left: 498px;
+    /* width: 15%; */
+    top: 56px;
+}
+.service-item-4 {
+    position: absolute;
+
+    left: 376px;
+    /* width: 15%; */
+    top: 104px;
+}
+.service-item-5 {
+    position: absolute;
+
+    left: 588px;
+    /* width: 15%; */
+    top: 107px;
+}
+.service-item-6 {
+    position: absolute;
+
+    left: 95px;
+    /* width: 15%; */
+    top: 153px;
+    z-index: 50;
+}
+.service-item-7 {
+    position: absolute;
+
+    left: 275px;
+    /* width: 15%; */
+    top: 183px;
+}
+.service-item-8 {
+    position: absolute;
+
+    left: 94px;
+    /* width: 15%; */
+    top: 255px;
+    z-index: 101;
+}
+.service-item-9 {
+    position: absolute;
+
+    left: 302px;
+    /* width: 15%; */
+    top: 262px;
+    z-index: 100;
+}
+.service-item-10 {
+    position: absolute;
+
+    left: 492px;
+    /* width: 15%; */
+    top: 185px;
+}
+.service-item-11 {
+    position: absolute;
+
+    left: 680px;
+    /* width: 15%; */
+    top: 192px;
+}
+.service-item-12 {
+    position: absolute;
+
+    left: 534px;
+    /* width: 15%; */
+    top: 274px;
+    z-index: 1;
+}
+.service-item-13 {
+    position: absolute;
+
+    left: 641px;
+    /* width: 15%; */
+    top: 252px;
+    z-index: 5;
+}
+.service-item-14 {
+    position: absolute;
+
+    left: 20px;
+    /* width: 15%; */
+    top: 319px;
+}
+.service-item-15 {
+    position: absolute;
+
+    left: 173px;
+    /* width: 15%; */
+    top: 345px;
+    z-index: 1;
+}
+.service-item-16 {
+    position: absolute;
+
+    left: 260px;
+    /* width: 15%; */
+    top: 376px;
+    z-index: 555;
+}
+.service-item-17 {
+    position: absolute;
+
+    left: 496px;
+    /* width: 15%; */
+    top: 338px;
+    z-index: 50;
+}
+.service-item-18 {
+    position: absolute;
+
+    left: 718px;
+    /* width: 15%; */
+    top: 361px;
+    z-index: 1;
+}
+.service-item-19 {
+    position: absolute;
+
+    left: 25px;
+    /* width: 15%; */
+    top: 405px;
+    z-index: 50;
+}
+.service-item-20 {
+    position: absolute;
+
+    left: 205px;
+    /* width: 15%; */
+    top: 477px;
+}
+.service-item-21 {
+    position: absolute;
+
+    left: 405px;
+    /* width: 15%; */
+    top: 463px;
+    z-index: 55;
+}
+.service-item-22 {
+    position: absolute;
+
+    left: 645px;
+    /* width: 15%; */
+    top: 425px;
+    z-index: 1;
+}
+.service-item-23 {
+    position: absolute;
+
+    left: 82px;
+    /* width: 15%; */
+    top: 531px;
+}
+.service-item-24 {
+    position: absolute;
+
+    left: 194px;
+    /* width: 15%; */
+    top: 580px;
+}
+.service-item-25 {
+    position: absolute;
+
+    left: 350px;
+    /* width: 15%; */
+    top: 560px;
+}

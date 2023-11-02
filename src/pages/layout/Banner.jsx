@@ -1,22 +1,10 @@
 import "./Banner.css";
-import { useEffect, useState } from "react";
+import Image from "react-bootstrap/Image";
 
 function Banner() {
-    const [timeOut, setTimeOut] = useState(false);
-    const [className, setClassName] = useState("banner-bg anim-zoom-in");
-
-    useEffect(() => {
-        const timeOut = setTimeout(() => {
-            setTimeOut(true);
-            setClassName("banner-bg banner-bg--active anim-zoom-out");
-        }, 5000);
-
-        return () => clearTimeout(timeOut);
-    }, []);
-
     return (
-        <div className={timeOut ? "" : "container"}>
-            <div className={className} />
+        <div className={"banner-container"}>
+            <Image src="/img/logo.gif" className="banner-logo" />
         </div>
     );
 }

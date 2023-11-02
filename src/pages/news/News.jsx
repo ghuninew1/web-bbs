@@ -1,17 +1,22 @@
-import { useRef, useContext, useEffect } from "react";
+import { useRef, useContext, useEffect, useState } from "react";
 import "./News.css";
 // import { Link } from "react-router-dom";
 import { dataNews } from "./dataNews";
 import { ImageSlideContext } from "../../store/ImageSlideContext.jsx";
 import Layout from "../layout/Layout";
-import { Fade } from "react-awesome-reveal";
-import SliceShow from "./SliceShow";
+import Container from "react-bootstrap/Container";
+import { Col, Row, Image } from "react-bootstrap";
+import ModelNews from "./ModelNews";
+import Anim from "../../component/Anim";
+import ModelIframe from "./ModelIframe.jsx";
 
 // const result = import.meta.globEager("../../../public/img/news2/*");
 
 const News = () => {
     const dataRef = useRef(dataNews);
     const [slide, changeSlide] = useContext(ImageSlideContext);
+    const [show, setShow] = useState(false);
+    const [showIframe, setShowIframe] = useState(false);
 
     useEffect(() => {
         dataRef.current = dataNews;
@@ -20,60 +25,61 @@ const News = () => {
     const handleClick = (e, item) => {
         e.preventDefault();
         if (item?.to.toString().startsWith("http")) {
-            window.open(item.to, "_blank");
+            changeSlide(item);
+            setShowIframe(true);
         } else {
             changeSlide(item?.to.toString().startsWith("http") ? null : item);
+            setShow(true);
         }
     };
 
+    const closeModel = () => {
+        setShow(false);
+        setShowIframe(false);
+        changeSlide(null);
+    };
+
+    console.log("slide", slide);
+
     return (
-        <Layout title="News" totop={slide?.to.length > 0 ? false : true}>
-            <div className="news_title">
-                {dataRef.current && slide?.to.length > 0 ? (
-                    <SliceShow auto={5000} />
-                ) : (
-                    <Fade direction="up" damping={0.1} cascade>
-                        {dataRef.current?.map((item) => (
-                            <div
-                                key={item.id}
-                                className={item.swap ? "news_title_main swap" : "news_title_main"}
-                            >
-                                <div
-                                    className={"news_title_main_img "}
-                                    style={{
-                                        alignItems: item.swap ? "flex-end" : "flex-start",
-                                    }}
+        <Layout title="News" totop={slide?.length > 0 ? false : true}>
+            {show && <ModelNews show={show} onHide={closeModel} />}
+            {showIframe && <ModelIframe show={showIframe} onHide={closeModel} />}
+
+            <Container fluid="lg">
+                <Anim type={"fadeIn"} delay={300} duration={800}>
+                    {dataRef.current?.map((item) => (
+                        <Row
+                            key={item.id}
+                            className={`mb-5 mt-5 text-center 
+                        ${item.swap ? "flex-row-reverse" : ""}`}
+                        >
+                            <Col lg={5} md={12} className="news-frist-col">
+                                <Image
+                                    src={item.src}
+                                    alt={item.id}
+                                    rounded
                                     onClick={(e) => handleClick(e, item)}
-                                >
-                                    <img
-                                        src={item.src}
-                                        alt={item.id}
-                                        className={"anim-right-in "}
-                                    />
-                                </div>
-                                <div className="news_title_main_date ">
-                                    <p>{item.date}</p>
-                                    <hr />
-                                </div>
-                                <div
-                                    className="news_title_main_text"
-                                    style={{
-                                        textAlign: item.swap ? "left" : "right",
-                                    }}
-                                >
-                                    <p>{item.title}</p>
-                                    <button
-                                        style={{ textAlign: item.swap ? "start" : "end" }}
-                                        onClick={(e) => handleClick(e, item)}
-                                    >
-                                        read more
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
-                    </Fade>
-                )}
-            </div>
+                                />
+                            </Col>
+                            <Col lg={2} md={12} className="news-second-col">
+                                <p>{item.date}</p>
+                                <hr />
+                            </Col>
+                            <Col
+                                lg={5}
+                                md={12}
+                                className={`news-third-col ${item.swap ? "warp" : ""}`}
+                            >
+                                <p>{item.title}</p>
+                                {item.title2 && <p>{item.title2}</p>}
+
+                                <p onClick={(e) => handleClick(e, item)}>read more</p>
+                            </Col>
+                        </Row>
+                    ))}
+                </Anim>
+            </Container>
         </Layout>
     );
 };

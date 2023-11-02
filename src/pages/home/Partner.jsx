@@ -1,91 +1,82 @@
 import "./Partner.css";
-import { Fade } from "react-awesome-reveal";
 
-import { dataList } from "./dataList";
-import { useState, useEffect } from "react";
+import dataList from "./dataList.json";
+import Container from "react-bootstrap/Container";
+import { Image, Col, Row } from "react-bootstrap";
+import Anim from "../../component/Anim";
 
 const Partner = () => {
-    const windowWidth = window.innerWidth;
-    const [style, setStyle] = useState({});
-    const [style2, setStyle2] = useState({});
-
-    useEffect(() => {
-        if (windowWidth <= 960) {
-            const windwosChange = () => {
-                if (windowWidth <= 960) {
-                    setStyle2({
-                        width: "100%",
-                        textAlign: "center",
-                    });
-                } else {
-                    setStyle2({});
-                }
-
-                if (windowWidth <= 600) {
-                    setStyle({
-                        display: "flex",
-                        alignItems: "center",
-                        textAlign: "center",
-                        maxWidth: "auto",
-                        width: "100%",
-                    });
-                } else {
-                    setStyle({
-                        display: "flex",
-                        alignItems: "center",
-                        textAlign: "center",
-                        maxWidth: "100%",
-                        width: "100%",
-                    });
-                }
-            };
-            window.addEventListener("resize", windwosChange);
-            return () => {
-                window.removeEventListener("resize", windwosChange);
-            };
-        }
-    }, [windowWidth]);
-
     return (
-        <div className="partner">
-            <div className="partner-container">
-                <div className="partner-logo1">
-                    <Fade direction="right" cascade damping={0.2} delay={500} triggerOnce>
+        <Container fluid className="partner g-0 ">
+            <p className="text-center mt-4 h5 text-black">Thank You Our Clients & Partners</p>
+            <Row className="partner-containe px-2 ">
+                <Anim type={"fadeInUp"} duration={1000} delay={1200}>
+                    <Col lg={12} className="partner-logo1">
                         {dataList
-                            .filter((id) => id.id <= 12)
+                            .filter((id) => id.id <= 7)
                             .map((data, idx) => (
-                                <span key={data.id + idx} className={`partner-logo-${data.id}`}>
-                                    <img
-                                        key={data.id + idx}
-                                        src={data.url}
-                                        alt={data.alt}
-                                        width={data.width}
-                                        height={data.height}
-                                    />
+                                <span
+                                    key={data.id + idx}
+                                    className={`partner-logo-${data.id} mx-1`}
+                                >
+                                    <Image src={data.url} fluid alt={data.alt} />
                                 </span>
                             ))}
-                    </Fade>
-                </div>
-
-                <div className="partner-logo2">
-                    <Fade direction="right" cascade damping={0.2} triggerOnce>
+                    </Col>
+                </Anim>
+                <Anim type={"fadeInUp"} duration={1000} delay={1300}>
+                    <Col lg={12} className="partner-logo2">
+                        {/* <Anim type={"fadeIn"} duration={1000} cascade cascadeDelay={100}> */}
                         {dataList
-                            .filter((id) => (id.id > 12) & (id.id <= 25))
+                            .filter((id) => id.id > 7 && id.id <= 14)
                             .map((data, idx) => (
-                                <span key={data.id + idx} className={`partner-logo-${data.id}`}>
-                                    <img
-                                        key={data.id + idx}
-                                        src={data.url}
-                                        alt={data.alt}
-                                        width={data.width}
-                                        height={data.height}
-                                    />
+                                <span
+                                    key={data.id + idx}
+                                    className={`partner-logo-${data.id} mx-1`}
+                                >
+                                    <Image src={data.url} fluid alt={data.alt} />
                                 </span>
                             ))}
-                    </Fade>
-                </div>
-            </div>
-        </div>
+                        {/* </Anim> */}
+                    </Col>
+                </Anim>
+                <Col lg={12} className="partner-logo-3-4 ">
+                    <div className="partner-logo-3-4-1">
+                        <span className="partner-logo3 ">
+                            {/* <Anim type={"fadeIn"} duration={1000} cascade cascadeDelay={300}> */}
+                            {dataList
+                                .filter((id) => (id.id > 14) & (id.id <= 19))
+                                .map((data, idx) => (
+                                    <span
+                                        key={data.id + idx}
+                                        className={`partner-logo-${data.id} mx-1`}
+                                    >
+                                        <Image src={data.url} fluid alt={data.alt} />
+                                    </span>
+                                ))}
+                            {/* </Anim> */}
+                        </span>
+                        <span className="partner-logo4 ">
+                            {/* <Anim type={"fadeIn"} duration={1000} cascade cascadeDelay={200}> */}
+                            {dataList
+                                .filter((id) => (id.id > 19) & (id.id <= 24))
+                                .map((data, idx) => (
+                                    <span
+                                        key={data.id + idx}
+                                        className={`partner-logo-${data.id} mx-2`}
+                                    >
+                                        <Image src={data.url} fluid alt={data.alt} />
+                                    </span>
+                                ))}
+                            {/* </Anim> */}
+                        </span>
+                    </div>
+                    <span className=" partner-logo-25 mx-2">
+                        <Image src={dataList[24]?.url} fluid alt={dataList[24]?.alt} />
+                    </span>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

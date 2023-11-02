@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Layout.css";
-import scroll from "../../component/ScrollListener";
+import Container from "react-bootstrap/Container";
+import ScrollListener from "../../component/ScrollListener";
 
-const Layout = ({ children, title, totop = false }) => {
+const Layout = ({ children, title, totop = false, ...props }) => {
     const scollToRef = useRef(null);
     const [titles, setTitles] = useState("©Big Brain Studio");
-    const { lastY } = scroll();
+    const scroll = ScrollListener();
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         if (title) {
@@ -20,23 +22,26 @@ const Layout = ({ children, title, totop = false }) => {
 
     useEffect(() => {
         if (totop) {
-            const useScrollBar = () => {
-                const scrollHeight = document.body.scrollHeight;
-                const innerHeight = window.innerHeight;
-                const scrollPercent = (lastY / (scrollHeight - innerHeight)) * 100;
-                scollToRef.current = scrollPercent;
-            };
-
-            window.addEventListener("scroll", useScrollBar);
-            return () => {
-                window.removeEventListener("scroll", useScrollBar);
-            };
+            if (scroll.y - scroll.lastY > 0) {
+                if (scroll.y > 100) {
+                    setShow(true);
+                }
+            } else {
+                setShow(false);
+            }
+            if (scroll.y > 0 && scroll.y !== scroll.lastY) {
+                const UseScrollBar = () => {
+                    const scrollHeight = document.body.scrollHeight;
+                    const innerHeight = window.innerHeight;
+                    const scrollPercents = (scroll.y / (scrollHeight - innerHeight)) * 100;
+                    scollToRef.current = scrollPercents;
+                };
+                return () => {
+                    UseScrollBar();
+                };
+            }
         }
-    }, [totop, lastY]);
-
-    const showPercent = (value) => {
-        return <progress value={value} max="100" className="progress-bar" />;
-    };
+    }, [scroll.y, scroll.lastY, totop]);
 
     const scrollToTop = () => {
         scollToRef.current =
@@ -45,15 +50,26 @@ const Layout = ({ children, title, totop = false }) => {
                 behavior: "smooth",
             }) || scollToRef.current;
     };
+    const showPercent = (value) => {
+        return <progress value={value} max="100" className="progress-bar" />;
+    };
 
     return (
-        <div className={"layout"}>
+        <div {...props} className="layout">
             {children}
             {totop && (
                 <>
                     {showPercent(scollToRef.current)}
 
-                    <button onClick={scrollToTop} className="totop">
+                    <button
+                        onClick={scrollToTop}
+                        style={{
+                            transform: show ? "translateY(0)" : "translateY(100%)",
+                            opacity: show ? "1" : "0",
+                            transition: "all 0.3s ease-in-out",
+                        }}
+                        className="totop btn btn-sm btn-outline-warning"
+                    >
                         to top
                     </button>
                 </>
@@ -66,6 +82,11 @@ Layout.propTypes = {
     children: PropTypes.node.isRequired,
     totop: PropTypes.bool,
     title: PropTypes.string,
+};
+
+Layout.defaultProps = {
+    totop: false,
+    title: "",
 };
 
 export default Layout;
