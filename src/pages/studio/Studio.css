@@ -3,6 +3,8 @@
 }
 .studio h2 {
     font-size: 25px;
+    font-family: "Signika", sans-serif !important;
+
     color: #009058;
 }
 .studio-head {
@@ -34,6 +36,8 @@
     margin: 0 auto;
     width: 100%;
     padding-top: 10px;
+    color: #d0d0d0;
+    font-family: "Signika", sans-serif !important;
 }
 .studio-text::first-letter {
     padding-left: 40px !important;

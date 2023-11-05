@@ -9,7 +9,6 @@ import News from "./pages/news/News.jsx";
 import Annoucement from "./pages/annoucement/Annoucement.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import UseImageSlide from "./store/ImageSlideContext.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
     const pages = [

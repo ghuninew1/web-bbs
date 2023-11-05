@@ -35,8 +35,8 @@ const NavBar = () => {
     };
 
     return (
-        <div className="border-bottom">
-            <Navbar expand="md" expanded={boolean} bg="dark" variant="dark" className="g-0">
+        <div className="navmain">
+            <Navbar expand="md" expanded={boolean} className="g-0 bg-black">
                 <Container fluid="lg" className="g-0">
                     <Navbar.Brand>
                         <Link to="/" className="nav-logo-li mx-1 ">

@@ -3,16 +3,19 @@
     padding: 0;
     background-color: #000;
     z-index: 0;
-    padding-top: 10px;
 }
 .header-banner {
     text-align: center;
-    font-family: font1;
+    font-family: font1 !important;
     font-size: 35px;
     font-weight: 600;
     color: #f79a0e;
     letter-spacing: 1.6px;
+    height: 40px;
+    line-height: 1.5;
     z-index: 0;
+    margin: 0;
+    padding: 0;
     background-color: #000;
 }
 .header-banner span {
@@ -23,7 +26,11 @@
     text-align: center;
     font-family: font1;
     font-size: 25px;
+    line-height: 1.5;
     font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
     letter-spacing: 1.2px;
 }
 .header-banner-text span {

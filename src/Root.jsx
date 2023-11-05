@@ -8,7 +8,7 @@ import Banner from "./pages/layout/header/Banner";
 
 export default function Root() {
     return (
-        <Container fluid className="g-0">
+        <Container fluid className="g-0 bg-black text-white">
             <Banner />
             <div className="layout-container">
                 <header>

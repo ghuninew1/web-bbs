@@ -37,9 +37,13 @@
     filter: drop-shadow(0 0 1px #121010);
     list-style: none;
     font-family: font1;
-    font-weight: 600;
+    text-decoration: none;
+    font-weight: 500;
     font-size: 20px;
-    line-height: 1.3;
+    line-height: 1.4;
+}
+a.active {
+    text-decoration: none;
 }
 .jobs-menu-active:hover {
     opacity: 1;
@@ -63,6 +67,8 @@
 
 .jobs-link-active {
     color: rgb(243, 101, 0);
+    text-decoration: none;
+
     filter: drop-shadow(0 0 1px #121010);
     transition: all 0.3s ease-in-out;
 }
@@ -79,16 +85,18 @@
     transition: all 0.3s ease-in-out;
 }
 .jobs-container {
-    padding-top: 500px;
+    padding-top: 400px;
     margin-bottom: 100px;
     margin-top: 100px;
+    font-family: "Signika", sans-serif !important;
 }
 
 .jobs-row {
     transform: translateY(100px);
     transition: all 0.3s ease-in-out;
     margin: 0 auto;
-    padding: 500px 0;
+    padding: 400px 0;
+    justify-content: center;
 }
 
 .jobs-requirements {
@@ -119,7 +127,8 @@
 .jobs-requirements p {
     margin: 0 5px;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.5;
+    font-weight: 300;
     color: #000;
     text-decoration: none;
 }
@@ -129,7 +138,9 @@
 .jobs-requirements li {
     margin: 0 5px;
     font-size: 16px;
-    line-height: 1.3;
+    line-height: 1.5;
+    font-weight: 300;
+    list-style: square;
     text-decoration: none;
     color: #000;
 }
@@ -151,9 +162,8 @@
         filter: drop-shadow(0 0 1px #121010);
         list-style: none;
         font-family: font1;
-        font-weight: 500;
         font-size: 15px;
-        line-height: 1.2;
+        line-height: 1.3;
     }
     .jobs-menu-active {
         opacity: 0.3;

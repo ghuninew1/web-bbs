@@ -8,8 +8,8 @@ import Image from "react-bootstrap/Image";
 const Footter = () => {
     return (
         <>
-            <Anim type={"slideInUp"} delay={1000} duration={1000} className="mb-4 mt-4 border-top">
-                <footer className="d-flex row mt-3 m-0 p-0">
+            <Anim type={"slideInUp"} delay={1000} duration={1000} className="footer-main">
+                <footer className="d-flex row m-0 p-0">
                     <Container className="col-md-5 footer-left">
                         <p>151 Sukhumvit 101/1, Bangchak,</p>
                         <p>Phrakhanong, Bangkok 10260, Thailand</p>

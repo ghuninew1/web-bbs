@@ -3,8 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    font-family: "Signika", sans-serif;
+    font-family: "Signika", sans-serif !important;
 }
 .annoucement h3 {
     font-size: 25px;
@@ -14,16 +13,16 @@
     text-align: center;
 }
 .annoucement p {
-    font-size: 17px;
-    margin-bottom: 20px;
-    letter-spacing: 1.2px;
-    line-height: 1.6;
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.7;
     font-weight: 300;
-    text-align: start;
     max-width: 900px;
+    padding-top: 10px;
+    color: #cac9c9;
 }
 .annoucement p::first-letter {
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 @media screen and (max-width: 768px) {
@@ -31,6 +30,6 @@
         font-size: 20px;
     }
     .annoucement p {
-        font-size: 15px;
+        font-size: 16px;
     }
 }

@@ -15,13 +15,13 @@ const Jobs = () => {
 
     useEffect(() => {
         Events.scrollEvent.register("begin", (to, element) => {
-            // console.log("begin", to, element);
+            console.log("begin", to, element);
             setActive(to);
         });
 
-        // Events.scrollEvent.register("end", (to, element) => {
-        //     console.log("end", to, element);
-        // });
+        Events.scrollEvent.register("end", (to, element) => {
+            console.log("end", to, element);
+        });
         scrollSpy.update();
 
         return () => {
@@ -36,8 +36,8 @@ const Jobs = () => {
 
     const GetJobs = () => {
         return jobsList.map((job, idx) => (
-            <Row key={idx} className="mt-5 pt-5 mb-5 jobs-row">
-                <Col md={12} className="mt-5 py-5">
+            <Row key={idx} className="jobs-row">
+                <Col>
                     <Element name={`job${idx}`}>
                         <Card className="jobs-requirements">
                             <Card.Img variant="top" src={`/img/jobs/icon_jobs_${idx + 1}.webp`} />
@@ -67,7 +67,7 @@ const Jobs = () => {
                 to="jobs-img"
                 spy={true}
                 smooth={true}
-                offset={-250}
+                offset={-180}
                 duration={500}
                 onSetActive={handleSetActive}
             />
@@ -85,7 +85,7 @@ const Jobs = () => {
                             to={`job${index}`}
                             spy={true}
                             smooth={true}
-                            offset={-250}
+                            offset={-180}
                             duration={500}
                             onSetActive={handleSetActive}
                         >

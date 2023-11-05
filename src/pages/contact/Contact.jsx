@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "./Contact.css";
 import Layout from "./../layout/Layout.jsx";
 import Container from "react-bootstrap/Container";
@@ -14,6 +14,14 @@ const Contact = () => {
     const nameRef = useRef(null);
     const emailRef = useRef(null);
     const subjectRef = useRef(null);
+
+    useEffect(() => {
+        if (document.cookie.indexOf("cookie_google_map") >= 0) {
+            document.cookie = "cookie_google_map=true; SameSite=None; Secure; max-age=31536000";
+        } else {
+            document.cookie = "cookie_google_map=true; SameSite=None; Secure; max-age=31536000";
+        }
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -98,8 +106,10 @@ const Contact = () => {
                                 width="100%"
                                 height="100%"
                                 title="Googld Map"
-                                frameBorder="0"
+                                tabIndex="0"
                                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
+                                allowFullScreen=""
+                                loading="lazy"
                             />
                         </Ratio>
                     </Col>

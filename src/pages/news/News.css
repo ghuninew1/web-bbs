@@ -2,6 +2,7 @@
     padding: 0;
     padding-bottom: 250px;
     padding-top: 10px;
+    font-family: "Signika", sans-serif !important;
 }
 .news-frist-col {
     display: flex;
@@ -42,7 +43,7 @@
 
 .news-second-col p {
     font-size: 17px;
-    color: #ffffff;
+    color: #cac9c9;
     font-weight: 400;
     line-height: 1.5;
     margin: 0;
@@ -60,8 +61,8 @@
 
 .news-third-col p {
     font-size: 16px;
-    color: #ffffff;
-    font-weight: 400;
+    color: #cac9c9;
+    font-weight: 300;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -71,8 +72,8 @@
 
 .warp p {
     font-size: 16px;
-    color: #ffffff;
-    font-weight: 400;
+    color: #cac9c9;
+    font-weight: 300;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -81,7 +82,7 @@
 }
 
 .news-third-col p:last-child {
-    font-size: 18px;
+    font-size: 17px;
     color: #0091df;
     font-weight: 400;
     margin: 0;
@@ -96,7 +97,7 @@
 }
 
 .warp p:last-child {
-    font-size: 18px;
+    font-size: 17px;
     color: #0091df;
     font-weight: 400;
     margin: 0;
@@ -137,7 +138,6 @@
     .news-second-col p {
         font-size: 16px;
         color: #ffffff;
-        font-weight: 400;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -146,7 +146,6 @@
     .news-third-col p {
         font-size: 15px;
         color: #ffffff;
-        font-weight: 400;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -155,7 +154,6 @@
     .news-third-col p:last-child {
         font-size: 17px;
         color: #0091df;
-        font-weight: 400;
         margin: 0;
         padding: 10px 0;
         text-align: center;
@@ -168,7 +166,6 @@
     .warp p {
         font-size: 15px;
         color: #ffffff;
-        font-weight: 400;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -211,7 +208,6 @@
     .news-third-col p {
         font-size: 15px;
         color: #ffffff;
-        font-weight: 400;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -220,7 +216,6 @@
     .news-third-col p:last-child {
         font-size: 17px;
         color: #0091df;
-        font-weight: 400;
         margin: 0;
         padding: 10px 0;
         text-align: center;
@@ -233,7 +228,6 @@
     .warp p {
         font-size: 15px;
         color: #ffffff;
-        font-weight: 400;
         margin: 0;
         padding: 0;
         text-align: center;
