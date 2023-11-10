@@ -1,38 +1,38 @@
-import { useState, useEffect } from "react";
-import Layout from "../layout/Layout";
-import "./Jobs.css";
-import { links, jobsList } from "./jobData";
-import { IoArrowForward } from "react-icons/io5";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy } from "react-scroll";
+import { useState, useEffect } from 'react'
+import Layout from '../layout/Layout'
+import './Jobs.css'
+import { links, jobsList } from './jobData'
+import { IoArrowForward } from 'react-icons/io5'
+import Container from 'react-bootstrap/Container'
+import Image from 'react-bootstrap/Image'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import { Link, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 
 const Jobs = () => {
-    const [active, setActive] = useState("jobs-img");
+    const [active, setActive] = useState('jobs-img')
 
     useEffect(() => {
-        Events.scrollEvent.register("begin", (to, element) => {
-            console.log("begin", to, element);
-            setActive(to);
-        });
+        Events.scrollEvent.register('begin', (to, element) => {
+            console.log('begin', to, element)
+            setActive(to)
+        })
 
-        Events.scrollEvent.register("end", (to, element) => {
-            console.log("end", to, element);
-        });
-        scrollSpy.update();
+        Events.scrollEvent.register('end', (to, element) => {
+            console.log('end', to, element)
+        })
+        scrollSpy.update()
 
         return () => {
-            Events.scrollEvent.remove("begin");
-            Events.scrollEvent.remove("end");
-        };
-    }, []);
+            Events.scrollEvent.remove('begin')
+            Events.scrollEvent.remove('end')
+        }
+    }, [])
 
     const handleSetActive = (to) => {
-        setActive(to);
-    };
+        setActive(to)
+    }
 
     const GetJobs = () => {
         return jobsList.map((job, idx) => (
@@ -58,11 +58,11 @@ const Jobs = () => {
                     </Element>
                 </Col>
             </Row>
-        ));
-    };
+        ))
+    }
 
     return (
-        <Layout title="Jobs">
+        <Layout title="Jobs" className={'container-fluid'}>
             <Link
                 to="jobs-img"
                 spy={true}
@@ -71,13 +71,13 @@ const Jobs = () => {
                 duration={500}
                 onSetActive={handleSetActive}
             />
-            <div className={active === "jobs-img" ? "jobs-img-active" : "jobs-img"}>
+            <div className={active === 'jobs-img' ? 'jobs-img-active' : 'jobs-img'}>
                 <Element name="jobs-img">
                     <Image src="/img/jobs/we_need_you.webp" width={300} />
                 </Element>
             </div>
 
-            <ul className={active !== "jobs-img" ? "jobs-menu-active" : "jobs-menu"}>
+            <ul className={active !== 'jobs-img' ? 'jobs-menu-active' : 'jobs-menu'}>
                 {links.map((link, index) => (
                     <li key={index}>
                         <Link
@@ -90,7 +90,7 @@ const Jobs = () => {
                             onSetActive={handleSetActive}
                         >
                             {active === `job${index}` && <IoArrowForward className="jobs-icon" />}
-                            <span className={active === `job${index}` ? "jobs-link-active" : ""}>
+                            <span className={active === `job${index}` ? 'jobs-link-active' : ''}>
                                 {link.name && link.name}
                             </span>
                         </Link>
@@ -102,7 +102,7 @@ const Jobs = () => {
                 <GetJobs />
             </Container>
         </Layout>
-    );
-};
+    )
+}
 
-export default Jobs;
+export default Jobs

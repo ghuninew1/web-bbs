@@ -254,7 +254,8 @@
         overflow: hidden;
     }
     .partner p {
-        font-size: 22px;
+        font-size: 25px;
+        font-weight: 550;
     }
     .partner-container {
         width: 100%;

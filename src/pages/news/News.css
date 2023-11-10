@@ -2,7 +2,7 @@
     padding: 0;
     padding-bottom: 250px;
     padding-top: 10px;
-    font-family: "Signika", sans-serif !important;
+    font-family: 'Signika', sans-serif !important;
 }
 .news-frist-col {
     display: flex;
@@ -35,7 +35,8 @@
 .news-second-col hr {
     width: 100%;
     height: 2px;
-    background-color: #ff7b00;
+    background-color: #ff8914;
+    color: rgb(255, 153, 0);
     border: none;
     margin: 10px 0;
     padding: 0;
@@ -130,7 +131,6 @@
     .news-second-col hr {
         width: 100%;
         height: 2px;
-        background-color: #ffffff;
         border: none;
         margin: 10px 0;
         padding: 0;
@@ -147,7 +147,7 @@
         font-size: 15px;
         color: #ffffff;
         margin: 0;
-        padding: 0;
+        padding: 0 5px;
         text-align: center;
         padding-right: 10px;
     }
@@ -166,70 +166,6 @@
     .warp p {
         font-size: 15px;
         color: #ffffff;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        padding-left: 10px;
-    }
-}
-@media screen and (max-width: 992px) {
-    .news-frist-col {
-        padding: 0;
-        max-height: 100%;
-    }
-    .news-frist-col img {
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        object-fit: cover;
-    }
-
-    .news-second-col {
-        margin: 0 auto;
-        width: 100%;
-    }
-    .news-second-col hr {
-        width: 100%;
-        height: 2px;
-        background-color: #ffffff;
-        border: none;
-        margin: 10px 0;
-        padding: 0;
-    }
-    .news-second-col p {
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: 400;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-
-    .news-third-col p {
-        font-size: 15px;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        padding-right: 10px;
-    }
-    .news-third-col p:last-child {
-        font-size: 17px;
-        color: #0091df;
-        margin: 0;
-        padding: 10px 0;
-        text-align: center;
-        padding-right: 10px;
-    }
-    .news-third-col p:last-child:hover {
-        color: #ea7a02;
-        cursor: pointer;
-    }
-    .warp p {
-        font-size: 15px;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
         text-align: center;
         padding-left: 10px;
     }

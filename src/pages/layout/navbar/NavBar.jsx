@@ -1,13 +1,13 @@
-import { NavLink, Link } from "react-router-dom";
-import { useState } from "react";
-import navLinks from "./navLinks.js";
-import "./NavBar.css";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Image from "react-bootstrap/Image";
-import { animateScroll as scroll } from "react-scroll";
-import Logo from "../../../assets/logo.webp";
-import { TfiAlignJustify, TfiClose } from "react-icons/tfi";
+import { NavLink, Link } from 'react-router-dom';
+import { useState } from 'react';
+import navLinks from './navLinks.js';
+import './NavBar.css';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Image from 'react-bootstrap/Image';
+import { animateScroll as scroll } from 'react-scroll';
+import Logo from '../../../assets/logo.webp';
+import { TfiClose, TfiMenu } from 'react-icons/tfi';
 
 const NavBar = () => {
     const { LinksMain } = navLinks();
@@ -23,21 +23,21 @@ const NavBar = () => {
             scroll.scrollTo(573, {
                 duration: 500,
                 delay: 0,
-                smooth: "easeInCubic",
+                smooth: 'easeInCubic',
             });
         } else {
             scroll.scrollTo(20, {
                 duration: 400,
                 delay: 0,
-                smooth: "easeInCubic",
+                smooth: 'easeInCubic',
             });
         }
     };
 
     return (
         <div className="navmain">
-            <Navbar expand="md" expanded={boolean} className="g-0 bg-black">
-                <Container fluid="lg" className="g-0">
+            <Navbar expand="md" expanded={boolean} className=" bg-black px-1">
+                <Container fluid className="g-0">
                     <Navbar.Brand>
                         <Link to="/" className="nav-logo-li mx-1 ">
                             <Image src={Logo} fluid />
@@ -55,11 +55,11 @@ const NavBar = () => {
                         className="navbar-toggler"
                         type="button"
                         style={{
-                            backgroundColor: boolean ? "#d77f2d" : "",
+                            backgroundColor: boolean ? '#d77f2d' : '',
                         }}
                         onClick={handleToggle}
                     >
-                        {boolean ? <TfiClose /> : <TfiAlignJustify />}
+                        {boolean ? <TfiClose /> : <TfiMenu />}
                     </button>
 
                     <Navbar.Collapse>
@@ -68,7 +68,7 @@ const NavBar = () => {
                                 <NavLink
                                     key={link.name}
                                     to={link.to}
-                                    end={link.to === "/" ? true : false}
+                                    end={link.to === '/' ? true : false}
                                     className={` nav-link text-center  `}
                                     onClick={scrollTo}
                                 >

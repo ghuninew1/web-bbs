@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom";
-import NavBar from "./pages/layout/navbar/NavBar";
-import Footer from "./pages/layout/footer/Footer";
-import Header from "./pages/layout/header/Header";
-import Container from "react-bootstrap/Container";
-import UseScroll from "./component/UseScroll";
-import Banner from "./pages/layout/header/Banner";
+import { Outlet } from 'react-router-dom';
+import NavBar from './pages/layout/navbar/NavBar';
+import Footer from './pages/layout/footer/Footer';
+import Header from './pages/layout/header/Header';
+import Container from 'react-bootstrap/Container';
+import UseScroll from './component/UseScroll';
+import Banner from './pages/layout/header/Banner';
 
 export default function Root() {
     return (

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import "./Contact.css";
 import Layout from "./../layout/Layout.jsx";
 import Container from "react-bootstrap/Container";
@@ -14,14 +14,6 @@ const Contact = () => {
     const nameRef = useRef(null);
     const emailRef = useRef(null);
     const subjectRef = useRef(null);
-
-    useEffect(() => {
-        if (document.cookie.indexOf("cookie_google_map") >= 0) {
-            document.cookie = "cookie_google_map=true; SameSite=None; Secure; max-age=31536000";
-        } else {
-            document.cookie = "cookie_google_map=true; SameSite=None; Secure; max-age=31536000";
-        }
-    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -46,13 +38,26 @@ const Contact = () => {
             <Container fluid="lg" className="g-0">
                 <Row className="contact-row rounded">
                     <Col lg={6} className="contact-left py-3 ">
-                        <Form onSubmit={handleSubmit} className="contact-form px-2 p-md-5">
+                        <Form
+                            onSubmit={handleSubmit}
+                            className="contact-form px-2 p-md-5"
+                        >
                             <h1 className="text-center mb-4">Contact</h1>
-                            <Form.Group className="mt-2" controlId="formBasicName">
+                            <Form.Group
+                                className="mt-2"
+                                controlId="formBasicName"
+                            >
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control type="name" placeholder="Enter Name" ref={nameRef} />
+                                <Form.Control
+                                    type="name"
+                                    placeholder="Enter Name"
+                                    ref={nameRef}
+                                />
                             </Form.Group>
-                            <Form.Group className="mt-2" controlId="formBasicEmail">
+                            <Form.Group
+                                className="mt-2"
+                                controlId="formBasicEmail"
+                            >
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
                                     type="email"
@@ -61,7 +66,10 @@ const Contact = () => {
                                 />
                             </Form.Group>
 
-                            <Form.Group className="mt-3 mb-3" controlId="formBasicSubject">
+                            <Form.Group
+                                className="mt-3 mb-3"
+                                controlId="formBasicSubject"
+                            >
                                 <Form.Label>Subject</Form.Label>
                                 <Form.Control
                                     as="textarea"
@@ -71,7 +79,11 @@ const Contact = () => {
                                 />
                             </Form.Group>
 
-                            <Button variant="warning" type="submit" className="form-btn">
+                            <Button
+                                variant="warning"
+                                type="submit"
+                                className="form-btn"
+                            >
                                 Submit
                             </Button>
                         </Form>
@@ -93,14 +105,21 @@ const Contact = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     key={idx}
-                                    style={{ margin: "0 5px", maxWidth: "55px" }}
+                                    style={{
+                                        margin: "0 5px",
+                                        maxWidth: "55px",
+                                    }}
                                     className="contact-link"
                                 >
-                                    <Image src={link.src} alt={link.name} fluid />
+                                    <Image
+                                        src={link.src}
+                                        alt={link.name}
+                                        fluid
+                                    />
                                 </a>
                             ))}
                         </Container>
-                        <Ratio aspectRatio="16x9" className="w-100">
+                        <Ratio aspectRatio="16x9">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.556153671707!2d100.61402207619273!3d13.684731498840582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a16b35ceceb5%3A0xe527940423e3cdf1!2sBig%20Brain%20Studio%20Co.%2CLtd.!5e0!3m2!1sth!2sth!4v1686721116416!5m2!1sth!2sth"
                                 width="100%"

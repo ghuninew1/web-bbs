@@ -1,15 +1,15 @@
-import { useRef, useContext, useEffect, useState } from "react";
-import "./News.css";
-import { dataNews } from "./dataNews";
-import { ImageSlideContext } from "../../store/ImageSlideContext.jsx";
-import Layout from "../layout/Layout";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import ModelNews from "./ModelNews";
-import Anim from "../../component/Anim";
-import ModelIframe from "./ModelIframe.jsx";
+import { useRef, useContext, useEffect, useState } from 'react';
+import './News.css';
+import { dataNews } from './dataNews';
+import { ImageSlideContext } from '../../store/ImageSlideContext.jsx';
+import Layout from '../layout/Layout';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ModelNews from './ModelNews';
+import Anim from '../../component/Anim';
+import ModelIframe from './ModelIframe.jsx';
 
 const News = () => {
     const dataRef = useRef(dataNews);
@@ -23,11 +23,11 @@ const News = () => {
 
     const handleClick = (e, item) => {
         e.preventDefault();
-        if (item?.to.toString().startsWith("http")) {
+        if (item?.to.toString().startsWith('http')) {
             changeSlide(item);
             setShowIframe(true);
         } else {
-            changeSlide(item?.to.toString().startsWith("http") ? null : item);
+            changeSlide(item?.to.toString().startsWith('http') ? null : item);
             setShow(true);
         }
     };
@@ -41,37 +41,59 @@ const News = () => {
     return (
         <Layout title="News" totop={slide?.to.length > 0 ? false : true}>
             {show && <ModelNews show={show} onHide={closeModel} />}
-            {showIframe && <ModelIframe show={showIframe} onHide={closeModel} />}
+            {showIframe && (
+                <ModelIframe show={showIframe} onHide={closeModel} />
+            )}
 
-            <Container fluid="lg" className="g-0">
-                <Anim type={"fadeIn"} delay={300} duration={800}>
+            <Container fluid="lg" className="g-0 ">
+                <Anim type={'fadeIn'} delay={300} duration={800}>
                     {dataRef.current?.map((item) => (
                         <Row
                             key={item.id}
                             className={`text-center news-container
-                        ${item.swap ? "flex-row-reverse" : ""}`}
+                        ${item.swap ? 'flex-row-reverse' : ''}`}
                         >
-                            <Col lg={5} md={12} className="news-frist-col">
+                            <Col md sm={12} lg={5} className="news-frist-col">
                                 <Image
                                     src={item.src}
                                     alt={item.id}
                                     rounded
+                                    style={{
+                                        maxHeight:
+                                            item.id === 2 || item.id === 8
+                                                ? '550px'
+                                                : '100%',
+                                        objectPosition:
+                                            item.id === 2 || item.id === 8
+                                                ? '50% 90%'
+                                                : 'center',
+                                    }}
                                     onClick={(e) => handleClick(e, item)}
                                 />
                             </Col>
-                            <Col lg={2} md={12} className="news-second-col">
+                            <Col
+                                md={2}
+                                sm={12}
+                                lg={2}
+                                className="news-second-col"
+                            >
                                 <p>{item.date}</p>
                                 <hr />
                             </Col>
                             <Col
+                                md
+                                sm={12}
                                 lg={5}
-                                md={12}
-                                className={`news-third-col ${item.swap ? "warp" : ""}`}
+                                className={`news-third-col ${
+                                    item.swap ? 'warp' : ''
+                                }`}
                             >
                                 <p>{item.title}</p>
                                 {item.title2 && <p>{item.title2}</p>}
 
-                                <p onClick={(e) => handleClick(e, item)}>read more</p>
+                                <p onClick={(e) => handleClick(e, item)}>
+                                    read more
+                                </p>
                             </Col>
                         </Row>
                     ))}
